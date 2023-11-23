@@ -1,9 +1,3 @@
-<?php
-session_start();
-if(isset($_SESSION['email']['Imagem'])){
-    $imagem = $_SESSION['email']['Imagem'];
-}
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -928,49 +922,37 @@ input::placeholder {
             <i class="fa-solid fa-bars" id="bars"></i>
         </button>
     </div>
-        <a class="logo-michael-1" href="index.php">
+        <a class="logo-michael-1" href="index.html">
             <img class="logo-1" src="img/m.png" alt="logo">
         </a>
 
         <div class="icones">
             <a class="btn-carrinho-2" href="#"><img class="carrinho" src="img/Carinho.png" alt=""><button></button></a>
-            <?php if(isset($_SESSION['email'])){
-                echo "<img class='recebido' src='$imagem'></img>";
-                echo "<a class='btn-sair' href='sair.php'><button>Sair</button></a>";
-            }else{
-                echo "<a class='btn-contato-2' href='cadastro.php'><img class='boneco' src='svg/boneco.svg'
-                    alt=''><button></button></a>";
-            }  
-            ?>                  
+<a class='btn-contato-2' href='cadastro.html'><img class='boneco' src='svg/boneco.svg'
+                    alt=''><button></button></a>             
         </div>
     
     <!-- Menu -->
     <div class="container" id="container">
-    <a class="logo-michael" href="index.php">
+    <a class="logo-michael" href="index.html">
             <img class="logo" src="img/m.png" alt="logo">
         </a>
         <ul class="nav-cont" id="produtos-container">
             <li class="li" id="produtos-link">
                 <a id="bao" class="linha" href="#">Produtos</a>
                 <ul class="nav-produtos" id="produtos-menu">
-                    <li><a href="guitarra.php">Guitarra</a></li>
-                    <li><a href="baixo.php">Baixo</a></li>
-                    <li><a href="ukulele.php">Ukulele</a></li>
-                    <li><a href="bateria.php">Bateria</a></li>
+                    <li><a href="guitarra.html">Guitarra</a></li>
+                    <li><a href="baixo.html">Baixo</a></li>
+                    <li><a href="ukulele.html">Ukulele</a></li>
+                    <li><a href="bateria.html">Bateria</a></li>
                 </ul>
             </li>
-            <li class="li"><a id="bao" class="linha" href="infantis.php">Infantis</a></li>
-            <li class="li"><a id="bao" class="linha" href="artistas.php">Artistas</a></li>
-            <li class="li"><a id="bao" class="sobre" href="index.php">Sobre a Michael</a></li>        
+            <li class="li"><a id="bao" class="linha" href="infantis.html">Infantis</a></li>
+            <li class="li"><a id="bao" class="linha" href="artistas.html">Artistas</a></li>
+            <li class="li"><a id="bao" class="sobre" href="index.html">Sobre a Michael</a></li>        
             <a class="btn-carrinho" href="#"><img class="carrinho" src="img/Carinho.png" alt=""><button></button></a>
-            <?php if(isset($_SESSION['email'])){
-                echo "<img class='recebido' src='$imagem'></img>";
-                echo "<a class='btn-sair' href='sair.php'><button>Sair</button></a>";
-            }else{
-                echo "<a class='btn-contato' href='cadastro.php'><img class='boneco' src='svg/boneco.svg'
-                    alt=''><button></button></a>";
-            }  
-            ?>
+<a class='btn-contato-2' href='cadastro.html'><img class='boneco' src='svg/boneco.svg'
+                    alt=''><button></button></a>     
                                     <div id="buscar">   
             <a class="btn-lupa" href="#"><img class="lupa" src="svg/lupa.svg" alt=""><button></button></a>
                 <input type="text" id="buscar-input" placeholder="Pesquisar Produto" oninput="buscarProduto()">
@@ -990,7 +972,7 @@ input::placeholder {
                 <source src="videos/Michael Instrumentos.mp4" type="video/mp4">
             </video>
 
-            <a href="power.php"><button class="saiba">Saiba Mais</button></a>
+            <a href="power.html"><button class="saiba">Saiba Mais</button></a>
             <img class="power" src="img/Power Gate.png" alt="">
 
 
@@ -1097,16 +1079,16 @@ input::placeholder {
                             <h3>Produtos</h3>
                             <ul>
                                 <li>
-                                    <a href="guitarra.php" title="API">Guitarra</a>
+                                    <a href="guitarra.html" title="API">Guitarra</a>
                                 </li>
                                 <li>
-                                    <a href="baixo.php" title="Pricing">Baixo</a>
+                                    <a href="baixo.html" title="Pricing">Baixo</a>
                                 </li>
                                 <li>
-                                    <a href="ukulele.php" title="Documentation">Ukulele</a>
+                                    <a href="ukulele.html" title="Documentation">Ukulele</a>
                                 </li>
                                 <li>
-                                    <a href="bateria.php" title="Release Notes">Bateria</a>
+                                    <a href="bateria.html" title="Release Notes">Bateria</a>
                                 </li>
                             </ul>
                         </section>

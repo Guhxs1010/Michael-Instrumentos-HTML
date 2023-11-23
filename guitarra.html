@@ -1,64 +1,26 @@
-<?php
-session_start();
-if(isset($_SESSION['email']['Imagem'])){
-    $imagem = $_SESSION['email']['Imagem'];
-}
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <title>Michael</title>
     <link rel="icon" href="img/m.png">
+    <title>Michael</title>
     <style>
-        /* Estilos gerais */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            border: 0;
-        }
-
-        @font-face {
-            font-family: 'Font';
-            src: url(fonts/Roboto-Medium.ttf);
-        }
-
-/* tela de carregamento */
-.loading-screen {
-    /* position: fixed; */
-    position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: 9999;
-           
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            transition: opacity 0.5s;
-}
-
-.video-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-  
-
-        .loading-content {
-            text-align: center;
-            color: white; /* Cor do texto */
-            font-size: 24px; /* Tamanho da fonte */
-        }
-
-        .logo {
-            max-width: 100px; /* Tamanho do logotipo */
+                    * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                border: 0;
+            }
+             
+            @font-face {
+                font-family: 'Font';
+                src: url(fonts/Roboto-Medium.ttf);
+            }
+            body {
+            margin: 0; /* Remova as margens padrão */
+            padding: 0; /* Remova o preenchimento padrão */
         }
         .container {
                 display: flex; 
@@ -132,8 +94,6 @@ if(isset($_SESSION['email']['Imagem'])){
         #produtos-menu a:hover {
             background-color: #eee;
         }
-
-
         /* Estilo do carrossel */
         .carrossel {
             position: relative;
@@ -178,52 +138,33 @@ if(isset($_SESSION['email']['Imagem'])){
         .nav-cont li a:hover::after {
             width: 100%;
         }
+/* tela de carregamento */
+.loading-screen {
+    /* position: fixed; */
+    position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+           
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            transition: opacity 0.5s;
+}
 
-        .boneco, .lupa {
-            width: 25px;
-        }
-
-        .lupa {
-            margin-left: 10px;
-        }
-
-        .power {
+.video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+        .video-guita{
             width: 100%;
             height: 100%;
         }
-
-        .imagem-centro {
-            width: 300px;
-            margin-top: 10px;
-        }
-
-        .texto-centro {
-            color: #5F489D;
-            font-family: 'Font';
-            font-size: 30px;
-            margin-top: 50px;
-        }
-
-        .conteudo-centro {
-            color: black;
-            font-family: 'Font';
-            font-size: 19px;
-            width: 700px;
-            margin-top: 10px;
-        }
-
-        .meio {
-            background-image: url(img/fundo.png);
-            background-size: cover;
-            background-position: top;
-        }
-
-        .meio1 {
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-        }
-
         .img-wrapper img {
             width: 300px;
         }
@@ -239,6 +180,7 @@ if(isset($_SESSION['email']['Imagem'])){
             height: 480px;
             perspective: 800px;
             position: relative;
+            margin: 0 170px 0 0;
         }
 
         .card {
@@ -382,15 +324,15 @@ if(isset($_SESSION['email']['Imagem'])){
             transform-origin: right bottom;
         }
 
-        .card:hover .comprar {
+        .card:hover button {
             transform: scale(1) skewY(0);
         }
 
-        .card:not(:hover) .comprar {
+        .card:not(:hover) button {
             opacity: 0;
         }
 
-        .comprar:hover {
+        button:hover {
             background-position: left;
         }
 
@@ -402,18 +344,8 @@ if(isset($_SESSION['email']['Imagem'])){
             font-family: 'Font';
         }
 
-        @keyframes fadeIn {
-            0% {
-                opacity: 0.33;
-                transform: scale(.89);
-            }
-        }
 
-        @media only screen and (max-width: 600px) {
-            /* body {
-                transform: scale(.67);
-            } */
-        }
+
         .fundo-caixas{
           background-image: url(img/rodape.png);
           background-size: cover;
@@ -429,47 +361,25 @@ if(isset($_SESSION['email']['Imagem'])){
         .mover-caixas{
           display: flex;
           justify-content: center;
+          margin-top:-10px;
         }
         .sub-caixas{
           display: flex;
+          justify-content: flex-start;
+          /* margib: 90px 90px 0; */
           width: 80vw;
           margin-top: 90px;
         }
-        .linha-footer, .sobre-footer {
-                font-family: 'Font';
-                color: #5F489D;
-                font-size: 20px;
-                text-decoration: none;
-            }
-            .nav-footer{
-                display: flex;
-            flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                padding-top: 50px;
-                padding-right: 120px;
-                list-style: none;
-            }
-            .footer{
-                background-image: url(img/fundo.png);
-                background-size: cover;
-                background-position: top;    
-            }
-            .imagem-footer{
-                display: flex;
-                justify-content: left;
-                margin-right: 20px;
-            }
-            .inverso{
-                max-width: 200px;
-                margin-left: 800px;
-                margin-top: -90px;
-            }
-            .container i {
-    display: none;
+            .boneco,
+.lupa {
+    width: 25px;
 }
 
-i {
+
+.lupa {
+    margin-left: 10px;
+}
+            i {
     color: #5F489D;
     float: right;
     display: none;
@@ -514,15 +424,6 @@ i {
 .btn-sair .lupa {
     margin-left: 5px; /* Adicione um espaçamento entre o texto e o ícone, se necessário */
 }
-.boneco,
-.lupa {
-    width: 25px;
-}
-
-
-.lupa {
-    margin-left: 10px;
-}
 img.carrinho{
     width:35px;
 }
@@ -530,14 +431,6 @@ img.carrinho{
     margin-top:-5px;
     margin-right:5px;
 }
-.wrapper {
-            width: 280px;
-            height: 480px;
-            perspective: 800px;
-            position: relative;
-            margin: 0 170px 0 0;
-        }
-
 #buscar {
             display: flex;
             align-items: center;
@@ -570,8 +463,10 @@ img.carrinho{
             flex: 1;
             outline:none;
         }
-
-:root {
+        .icones{
+            display:none;
+        }
+        :root {
     --text-color: #5F489D;
     --white: #5F489D;
     --text-gray: #FEFEFE;
@@ -846,6 +741,12 @@ input::placeholder {
 .social-links ul li a i{
     fill: #000;
 }
+.social-links ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    list-style-type: none;  
+}
 
 
 /*? mobile */
@@ -876,6 +777,13 @@ input::placeholder {
     .social-wrapper {
         justify-content: center;
     }
+}
+.sections{
+    display:flex;
+    flex-wrap:nowrap;
+}
+.burguer{
+    display:flex;
 }
 @media (max-width:780px) {
     .container{
@@ -916,7 +824,7 @@ input::placeholder {
     .logo-1{
         display: flex;
         width: 50px;
-        margin-top: -30px;
+        margin-top:-30px;
     }
     #bao{
         color: white;
@@ -952,7 +860,45 @@ input::placeholder {
         margin-left:190px;
         width:100px;
     }
-    .img-footer{
+    #buscar{
+        width:200px;
+        border:0;
+    }
+    .icones{
+        display:flex;
+        justify-content: end;
+        margin-top:-40px;
+        width:
+    }
+    .img-carrinho, .boneco, .lupa{
+        width:25px;
+    }
+    .icones{
+        display:flex;
+        justify-content: end;
+        margin-top:-40px;
+        width:
+    }
+    .btn-contato-2{
+       display:flex;
+       margin-top:-5px;
+    }
+    .btn-contato{
+        display:none;
+    }
+    #buscar{
+        margin-top:5px;
+    }
+    .video-guita{
+        margin-top:10px;
+    }
+    .nav-cont{
+    margin-left:0;
+}
+.btn-carrinho{
+    display:none;
+}
+.img-footer{
     width:100px;
     margin-left:85px;
     margin-top:10px;
@@ -980,304 +926,225 @@ input::placeholder {
 .footer-columns section{
     flex:0;
 }
-.nav-cont{
-    margin-left:0;
-}
-.btn-lupa{
-    display:none;
-}
-.btn-carrinho-2{
-    margin-top:-5px;
-}
-.btn-carrinho{
-    display:none;
-}
-.btn-contato{
-    display:none;
-}
-.btn-contato-2{
-    display:flex;
-    margin-top:-5px;
-}
-.bars{
-    display:flex;
-    margin-top:10px;
-}
-#buscar{
-    margin-top:5px;
-}
-.icones{
-        display:flex;
-        justify-content: end;
-        margin-top:-40px;
-        width:
     }
-    .img-carrinho, .boneco, .lupa{
-        width:25px;
-    }
-    .bars {
-    display: flex;
-    margin-top: 10px;
-  }
-  .power{
-    margin-top:10px;
-  }
-  .meio{
-    display:none;
-  }
-  .mover-caixas{
-    margin-top:-10px;
-  }
-}
     </style>
 </head>
 <body>
-  <div class="loading-screen">
-    <video class="video-bg" autoplay muted loop>
-        <source src="videos/logotipo (2).mp4" type="video/mp4">
-    </video>
-</div>
+    <div class="loading-screen">
+        <video class="video-bg" autoplay muted loop>
+            <source src="videos/logotipo (2).mp4" type="video/mp4">
+        </video>
+    </div>
 
-<button class="botao-bars" onclick="OpenMenu()">
-    <i class="fa-solid fa-bars" id="bars"></i>
-</button>
-<a class="logo-michael-1" href="index.php">
-    <img class="logo-1" src="img/m.png" alt="logo">
-</a>
-
-<div class="icones">
-            <a class="btn-carrinho-2" href="#"><img class="carrinho" src="img/Carinho.png" alt=""><button></button></a>
-            <?php if(isset($_SESSION['email'])){
-                echo "<img class='recebido' src='$imagem'></img>";
-                echo "<a class='btn-sair' href='sair.php'><button>Sair</button></a>";
-            }else{
-                echo "<a class='btn-contato-2' href='cadastro.php'><img class='boneco' src='svg/boneco.svg'
-                    alt=''><button></button></a>";
-            }  
-            ?>                  
+    <button class="botao-bars" onclick="OpenMenu()">
+            <i class="fa-solid fa-bars" id="bars"></i>
+        </button>
+        <a class="logo-michael-1" href="index.html">
+            <img class="logo-1" src="img/m.png" alt="logo">
+        </a>
+    
+        <div class="icones">
+            <a class="btn-carrinho-2" href="#"><img class="carrinho" src="img/Carinho.png" alt=""><button></button></a> 
+<a class='btn-contato-2' href='cadastro.html'><img class='boneco' src='svg/boneco.svg'
+                    alt=''><button></button></a>                     
         </div>
-
-<!-- Menu -->
-<div class="container" id="container">
-<a class="logo-michael" href="index.php">
-    <img class="logo" src="img/m.png" alt="logo">
-</a>
-<ul class="nav-cont" id="produtos-container">
-    <li class="li" id="produtos-link">
-        <a id="bao" class="linha" href="#">Produtos</a>
-        <ul class="nav-produtos" id="produtos-menu">
-            <li><a href="guitarra.php">Guitarra</a></li>
-            <li><a href="baixo.php">Baixo</a></li>
-            <li><a href="ukulele.php">Ukulele</a></li>
-            <li><a href="bateria.php">Bateria</a></li>
-        </ul>
-    </li>
-    <li class="li"><a id="bao" class="linha" href="infantis.php">Infantis</a></li>
-    <li class="li"><a id="bao" class="linha" href="artistas.php">Artistas</a></li>
-    <li class="li"><a id="bao" class="sobre" href="index.php">Sobre a Michael</a></li>
-    <a class="btn-carrinho" href="#"><img class="carrinho" src="img/Carinho.png" alt=""><button></button></a>
-    <?php if(isset($_SESSION['email'])){
-        echo "<img class='recebido' src='$imagem'></img>";
-        echo "<a class='btn-sair' href='sair.php'><button>Sair</button></a>";
-    }else{
-        echo "<a class='btn-contato' href='cadastro.php'><img class='boneco' src='svg/boneco.svg'
-            alt=''><button></button></a>";
-    }  
-    ?>
-                            <div id="buscar">
+    <!-- Menu -->
+    <div class="container" id="container">
+    <a class="logo-michael" href="index.html">
+            <img class="logo" src="img/m.png" alt="logo">
+        </a>
+        <ul class="nav-cont" id="produtos-container">
+            <li class="li" id="produtos-link">
+                <a id="bao" class="linha" href="#">Produtos</a>
+                <ul class="nav-produtos" id="produtos-menu">
+                    <li><a href="guitarra.html">Guitarra</a></li>
+                    <li><a href="baixo.html">Baixo</a></li>
+                    <li><a href="ukulele.html">Ukulele</a></li>
+                    <li><a href="bateria.html">Bateria</a></li>
+                </ul>
+            </li>
+            <li class="li"><a id="bao" class="linha" href="infantis.html">Infantis</a></li>
+            <li class="li"><a id="bao" class="linha" href="artistas.html">Artistas</a></li>
+            <li class="li"><a id="bao" class="sobre" href="index.html">Sobre a Michael</a></li>
+            <a class="btn-carrinho" href="#"><img class="carrinho" src="img/Carinho.png" alt=""><button></button></a>
+<a class='btn-contato-2' href='cadastro.html'><img class='boneco' src='svg/boneco.svg'
+                    alt=''><button></button></a>     
+                        <div id="buscar">
             <a class="btn-lupa" href="#"><img class="lupa" src="svg/lupa.svg" alt=""><button></button></a>
                 <input type="text" id="buscar-input" placeholder="Pesquisar Produto" oninput="buscarProduto()">
                 <button onclick="buscarSite()"></button>
             </div>
-</ul>
-</div>
-
-    <div class="imagem-menu">
-        <div class="power">
-            <img class="power" src="img/Power Gate.png" alt="">
-        </div>
+            
+            
+        </ul>
     </div>
 
-    <div class="meio">
-        <div class="meio1">
-        <div class="texto-meio">
-            <h1 class="texto-centro">Sobre a PowerGate</h1>
-            <p class="conteudo-centro">Power Gate é uma combinação que harmoniza perfeitamente no mundo da música. A Michael Instrumentos é conhecida por seu compromisso com a qualidade e a inovação no desenvolvimento de instrumentos musicais, enquanto a Power Gate se destaca por sua excelência na fabricação e venda de caixas de bateria. Juntas, essas empresas oferecem aos músicos uma gama de produtos que elevam o desempenho e a experiência musical.</p>
-        </div>
-        <div class="imagem-meio">
-            <img class="imagem-centro" src="img/power.png" alt="">
-        
+    <div class="video-inicio">
+        <video class="video-guita" src="videos/Guitarra-banner.mp4" alt="" autoplay loop muted>
     </div>
 
-    </div>
-    </div>    
-    
-    <!-- Caixa 1  -->
-    <div class="fundo-caixas">
-  <div class="mover-caixas">
-    <div class="container-caixas">
-      <div class="sub-caixas">
-      <div class="caixa-1">
-        <div class="wrapper">
-            <div class="card">
-              <div class="front">
-                <h1>CAIXA POWERGATE </h1>
-                <p>Michael</p>
-                <p class="price">R$ 300.00</p>
+        <!-- Caixa 1  -->
+        <div class="fundo-caixas">
+            <div class="mover-caixas">
+              <div class="container-caixas">
+                <div class="sub-caixas">
+                <div class="caixa-1">
+                  <div class="wrapper">
+                      <div class="card">
+                        <div class="front">
+                          <h1>GUITARRA MICHAEL JAZZ </h1>
+                          <p>Michael</p>
+                          <p class="price">R$ 1500.00</p>
+                        </div>
+                        <div class="right">
+                          <h2>GUITARRA</h2>
+                          <ul>
+                            <li class="lii">JAZZ ACTION</li>
+                            <li class="lii">GM1159N MBK (METALLIC BLACK)</li>
+                          </ul>
+                          <button class="comprar">Comprar</button>
+                        </div>
+                      </div>
+                      <div class="img-wrapper">
+                           <img src='img/guitarra-1.png' alt=''>    
+                      </div>
+                    </div> 
+                  </div>
+                
+                  <!-- Caixa 2 -->
+                  <div class="caixa-2">
+                    <div class="wrapper">
+                      <div class="card">
+                        <div class="front">
+                          <h1>GUITARRA MICHAEL</h1>
+                          <p>Michael</p>
+                          <p class="price">R$ 500.00</p>
+                        </div>
+                        <div class="right">
+                          <h2>GUITARRA</h2>
+                          <ul>
+                            <li class="lii">GM217N</li>
+                            <li class="lii">STANDARD</li>
+                            <li class="lii">MBA (METALLIC ALL BLACK)</li>
+                          </ul>
+                          <button class="comprar">Comprar</button>
+                        </div>
+                      </div>
+                      <div class="img-wrapper">
+                           <img src='img/guitarra-2.png' alt=''>    
+                      </div>
+                    </div> 
+                  </div>
+                 
+                  <!-- Caixa 3 -->
+                  <div class="caixa-3">
+                    <div class="wrapper">
+                      <div class="card">
+                        <div class="front">
+                          <h1>GUITARRA MICHAEL</h1>
+                          <p>Michael</p>
+                          <p class="price">R$ 1800.00</p>
+                        </div>
+                        <div class="right">
+                          <h2>GUITARRA</h2>
+                          <ul>
+                            <li class="lii">GM730N</li>
+                            <li class="lii">LP</li>
+                            <li class="lii">GM730N GD (GOLD TOP)</li>
+                          </ul>
+                          <button class="comprar">Comprar</button>
+                        </div>
+                      </div>
+                      <div class="img-wrapper">
+                           <img src='img/guitarra-3.png' alt=''>    
+                      </div>
+                    </div> 
+                  </div>
+                  </div>
               </div>
-              <div class="right">
-                <h2>CAIXA</h2>
-                <ul>
-                  <li class="lii">BIRCH</li>
-                  <li class="lii">PGB1255</li>
-                  <li class="lii">FRD</li>
-                  <li class="lii">12x5,5 </li>
-                </ul>
-                <button class="comprar">Comprar</button>
+          </div>
+          
+          
+            <div class="mover-caixas">
+              <div class="container-caixas">
+                <div class="sub-caixas">
+                <div class="caixa-4">
+                  <div class="wrapper">
+                      <div class="card">
+                        <div class="front">
+                          <h1>GUITARRA MICHAEL ROCKER </h1>
+                          <p>Michael</p>
+                          <p class="price">R$ 700.00</p>
+                        </div>
+                        <div class="right">
+                          <h2>GUITARRA</h2>
+                          <ul>
+                            <li class="lii">ROCKER</li>
+                            <li class="lii">GMS250</li>
+                            <li class="lii">VS (VINTAGE SUNBURST)</li>
+                          </ul>
+                          <button class="comprar">Comprar</button>
+                        </div>
+                      </div>
+                      <div class="img-wrapper">
+                           <img src='img/guitarra-4.png' alt=''>    
+                      </div>
+                    </div> 
+                  </div>
+                
+                  <!-- Caixa 2 -->
+                  <div class="caixa-5">
+                    <div class="wrapper">
+                      <div class="card">
+                        <div class="front">
+                          <h1>GUITARRA MICHAEL</h1>
+                          <p>Michael</p>
+                          <p class="price">R$ 1300.00</p>
+                        </div>
+                        <div class="right">
+                          <h2>GUITARRA</h2>
+                          <ul>
+                            <li class="lii">GML300</li>
+                            <li class="lii">LP SPECIAL</li>
+                          </ul>
+                          <button class="comprar">Comprar</button>
+                        </div>
+                      </div>
+                      <div class="img-wrapper">
+                           <img src='img/GUITARRA-5.png' alt=''>    
+                      </div>
+                    </div> 
+                  </div>
+                 
+                  <!-- Caixa 3 -->
+                  <div class="caixa-6">
+                    <div class="wrapper">
+                      <div class="card">
+                        <div class="front">
+                          <h1>GUITARRA MICHAEL TL SLIDE</h1>
+                          <p>Michael</p>
+                          <p class="price">R$ 500.00</p>
+                        </div>
+                        <div class="right">
+                          <h2>GUITARRA</h2>
+                          <ul>
+                            <li class="lii">TL SLIDE</li>
+                            <li class="lii"> GM385N RD (RED)</li>
+                          </ul>
+                          <button class="comprar">Comprar</button>
+                        </div>
+                      </div>
+                      <div class="img-wrapper">
+                           <img src='img/guitarra-6.png' alt=''>    
+                      </div>
+                    </div> 
+                  </div>
+                  </div>
               </div>
-            </div>
-            <div class="img-wrapper">
-                 <img src='img/caixa.png' alt=''>    
-            </div>
-          </div> 
-        </div>
-      
-        <!-- Caixa 2 -->
-        <div class="caixa-2">
-          <div class="wrapper">
-            <div class="card">
-              <div class="front">
-                <h1>CAIXA POWERGATE STAGE </h1>
-                <p>Michael</p>
-                <p class="price">R$ 250.00</p>
-              </div>
-              <div class="right">
-                <h2>CAIXA</h2>
-                <ul>
-                  <li class="lii">PGS1255</li>
-                  <li class="lii">JBK</li>
-                  <li class="lii">12x5,5</li>
-                </ul>
-                <button class="comprar">Comprar</button>
-              </div>
-            </div>
-            <div class="img-wrapper">
-                 <img src='img/caixa-2.png' alt=''>    
-            </div>
-          </div> 
-        </div>
-       
-        <!-- Caixa 3 -->
-        <div class="caixa-3">
-          <div class="wrapper">
-            <div class="card">
-              <div class="front">
-                <h1>CAIXA POWERGATE MAPLE</h1>
-                <p>Michael</p>
-                <p class="price">R$ 350.00</p>
-              </div>
-              <div class="right">
-                <h2>CAIXA</h2>
-                <ul>
-                  <li class="lii">PGM1455</li>
-                  <li class="lii">NTS</li>
-                  <li class="lii">14x5,5</li>
-                </ul>
-                <button class="comprar">Comprar</button>
-              </div>
-            </div>
-            <div class="img-wrapper">
-                 <img src='img/caixa-3.png' alt=''>    
-            </div>
-          </div> 
-        </div>
-        </div>
-    </div>
-</div>
-
-
-  <div class="mover-caixas">
-    <div class="container-caixas">
-      <div class="sub-caixas">
-      <div class="caixa-4">
-        <div class="wrapper">
-            <div class="card">
-              <div class="front">
-                <h1>CAIXA POWERGATE BIRCH </h1>
-                <p>Michael</p>
-                <p class="price">R$ 200.00</p>
-              </div>
-              <div class="right">
-                <h2>CAIXA</h2>
-                <ul>
-                  <li class="lii">PGB1455</li>
-                  <li class="lii">FRD</li>
-                  <li class="lii">14x5,5</li>
-                </ul>
-                <button class="comprar">Comprar</button>
-              </div>
-            </div>
-            <div class="img-wrapper">
-                 <img src='img/caixa-4.png' alt=''>    
-            </div>
-          </div> 
-        </div>
-      
-        <!-- Caixa 2 -->
-        <div class="caixa-5">
-          <div class="wrapper">
-            <div class="card">
-              <div class="front">
-                <h1>CAIXA POWERGATE STAGE </h1>
-                <p>Michael</p>
-                <p class="price">R$ 150.00</p>
-              </div>
-              <div class="right">
-                <h2>CAIXA</h2>
-                <ul>
-                  <li class="lii">PGS0806</li>
-                  <li class="lii">JBK</li>
-                  <li class="lii">08x06</li>
-                </ul>
-                <button class="comprar">Comprar</button>
-              </div>
-            </div>
-            <div class="img-wrapper">
-                 <img src='img/caixa-5.png' alt=''>    
-            </div>
-          </div> 
-        </div>
-       
-        <!-- Caixa 3 -->
-        <div class="caixa-6">
-          <div class="wrapper">
-            <div class="card">
-              <div class="front">
-                <h1>CAIXA POWERGATE STAGE</h1>
-                <p>Michael</p>
-                <p class="price">R$ 350.00</p>
-              </div>
-              <div class="right">
-                <h2>CAIXA</h2>
-                <ul>
-                  <li class="lii">PGS1408</li>
-                  <li class="lii">JBK</li>
-                  <li class="lii">14x08</li>
-                </ul>
-                <button class="comprar">Comprar</button>
-              </div>
-            </div>
-            <div class="img-wrapper">
-                 <img src='img/caixa-6.png' alt=''>    
-            </div>
-          </div> 
-        </div>
-        </div>
-    </div>
-</div>
- </div>
-
- <footer class="footer">
+          </div>
+           </div>
+          
+           <footer class="footer">
             <div class="footer-wrapper">
                 <div class="social-wrapper">
                     <div class='social-links'>
@@ -1321,16 +1188,16 @@ input::placeholder {
                             <h3>Produtos</h3>
                             <ul>
                                 <li>
-                                    <a href="guitarra.php" title="API">Guitarra</a>
+                                    <a href="guitarra.html" title="API">Guitarra</a>
                                 </li>
                                 <li>
-                                    <a href="baixo.php" title="Pricing">Baixo</a>
+                                    <a href="baixo.html" title="Pricing">Baixo</a>
                                 </li>
                                 <li>
-                                    <a href="ukulele.php" title="Documentation">Ukulele</a>
+                                    <a href="ukulele.html" title="Documentation">Ukulele</a>
                                 </li>
                                 <li>
-                                    <a href="bateria.php" title="Release Notes">Bateria</a>
+                                    <a href="bateria.html" title="Release Notes">Bateria</a>
                                 </li>
                             </ul>
                         </section>
@@ -1399,9 +1266,10 @@ input::placeholder {
             </div>
         </footer>
 
+     
     <script>
-       // Quando todo o conteúdo da página é carregado
-window.addEventListener("load", function() {
+               // Quando todo o conteúdo da página é carregado
+       window.addEventListener("load", function() {
     setTimeout(function() {
         document.querySelector(".loading-screen").style.opacity = "0";
         setTimeout(function() {
@@ -1409,6 +1277,7 @@ window.addEventListener("load", function() {
         }, 100); // Tempo de transição (500 ms)
     }, 400); // Tempo de exibição (5000 ms)
 });
+
 const produtosLink = document.getElementById("produtos-link");
         const produtosMenu = document.getElementById("produtos-menu");
 
@@ -1421,48 +1290,27 @@ const produtosLink = document.getElementById("produtos-link");
         });
         function OpenMenu() {
     const menu = document.getElementById("container")
-    if (menu.style.display == 'flex') {
+    if (menu.style.display === 'flex') {
         menu.style.display = 'none';
     } else {
         menu.style.display = 'flex';
     }
 }
-
-function buscarProduto(){
-            const buscarInput = document.getElementById("buscar-input")
-            const produto = document.getElementsByClassName("wrapper")
-
-            for(let i = 0; i<produto.length; i++){
-                const produtoNome = produto[i].querySelector("h1").innerText.toLowerCase()
-
-                if(produtoNome.includes(buscarInput.value.toLowerCase())) {
-                    produto[i].style.display = "block" 
-                } else {
-                 produto[i].style.display = "none"
-                    }
-                }
-            }
-            function buscarProduto() {
+function buscarProduto() {
     const buscarInput = document.getElementById("buscar-input").value.toLowerCase();
     const produtos = document.querySelectorAll(".wrapper");
-    const videoGuita = document.querySelector(".power");
-    const videoGuita2 = document.querySelector(".meio");
+    const videoGuita = document.querySelector(".video-guita");
 
     produtos.forEach(produto => {
         const produtoNome = produto.querySelector("h1").innerText.toLowerCase();
 
         if (produtoNome.includes(buscarInput)) {
             produto.style.display = "block";
+            if (videoGuita) {
+                videoGuita.style.display = "none";
+            }
         } else {
             produto.style.display = "none";
-        }
-
-        if (videoGuita) {
-            videoGuita.style.display = buscarInput ? "none" : "block";
-        }
-
-        if (videoGuita2) {
-            videoGuita2.style.display = buscarInput ? "none" : "block";
         }
     });
 }
@@ -1471,8 +1319,7 @@ function buscarProduto(){
 document.getElementById("buscar-input").addEventListener("input", function () {
     if (this.value === "") {
         const produtos = document.querySelectorAll(".wrapper");
-        const videoGuita = document.querySelector(".infantil-video");
-        const videoGuita2 = document.querySelector(".meio");
+        const videoGuita = document.querySelector(".video-guita");
 
         produtos.forEach(produto => {
             produto.style.display = "block";
@@ -1481,13 +1328,9 @@ document.getElementById("buscar-input").addEventListener("input", function () {
         if (videoGuita) {
             videoGuita.style.display = "block";
         }
-
-        if (videoGuita2) {
-            videoGuita2.style.display = "block";
-        }
     }
 });
-            document.getElementById("year").innerHTML = new Date().getFullYear();  
+document.getElementById("year").innerHTML = new Date().getFullYear();
     </script>
 </body>
 </html>

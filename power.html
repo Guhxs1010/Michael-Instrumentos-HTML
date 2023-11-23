@@ -1,29 +1,59 @@
-<?php
-session_start();
-if(isset($_SESSION['email']['Imagem'])){
-    $imagem = $_SESSION['email']['Imagem'];
-}
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="icon" href="img/m.png">
     <title>Michael</title>
+    <link rel="icon" href="img/m.png">
     <style>
-                    * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-                border: 0;
-            }
+        /* Estilos gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            border: 0;
+        }
 
-            @font-face {
-                font-family: 'Font';
-                src: url(fonts/Roboto-Medium.ttf);
-            }
+        @font-face {
+            font-family: 'Font';
+            src: url(fonts/Roboto-Medium.ttf);
+        }
+
+/* tela de carregamento */
+.loading-screen {
+    /* position: fixed; */
+    position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+           
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            transition: opacity 0.5s;
+}
+
+.video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+  
+
+        .loading-content {
+            text-align: center;
+            color: white; /* Cor do texto */
+            font-size: 24px; /* Tamanho da fonte */
+        }
+
+        .logo {
+            max-width: 100px; /* Tamanho do logotipo */
+        }
         .container {
                 display: flex; 
                 align-items: center; 
@@ -93,6 +123,9 @@ if(isset($_SESSION['email']['Imagem'])){
             transition: background-color 0.2s;
         }
 
+        #produtos-menu a:hover {
+            background-color: #eee;
+        }
 
 
         /* Estilo do carrossel */
@@ -139,30 +172,52 @@ if(isset($_SESSION['email']['Imagem'])){
         .nav-cont li a:hover::after {
             width: 100%;
         }
-/* tela de carregamento */
-.loading-screen {
-    /* position: fixed; */
-    position: absolute;
+
+        .boneco, .lupa {
+            width: 25px;
+        }
+
+        .lupa {
+            margin-left: 10px;
+        }
+
+        .power {
             width: 100%;
             height: 100%;
-            z-index: 9999;
-           
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            transition: opacity 0.5s;
-}
+        }
 
-.video-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-  
+        .imagem-centro {
+            width: 300px;
+            margin-top: 10px;
+        }
+
+        .texto-centro {
+            color: #5F489D;
+            font-family: 'Font';
+            font-size: 30px;
+            margin-top: 50px;
+        }
+
+        .conteudo-centro {
+            color: black;
+            font-family: 'Font';
+            font-size: 19px;
+            width: 700px;
+            margin-top: 10px;
+        }
+
+        .meio {
+            background-image: url(img/fundo.png);
+            background-size: cover;
+            background-position: top;
+        }
+
+        .meio1 {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
         .img-wrapper img {
             width: 300px;
         }
@@ -321,15 +376,15 @@ if(isset($_SESSION['email']['Imagem'])){
             transform-origin: right bottom;
         }
 
-        .card:hover button {
+        .card:hover .comprar {
             transform: scale(1) skewY(0);
         }
 
-        .card:not(:hover) button {
+        .card:not(:hover) .comprar {
             opacity: 0;
         }
 
-        button:hover {
+        .comprar:hover {
             background-position: left;
         }
 
@@ -368,55 +423,12 @@ if(isset($_SESSION['email']['Imagem'])){
         .mover-caixas{
           display: flex;
           justify-content: center;
-          margin-top:-10px;
         }
         .sub-caixas{
           display: flex;
           width: 80vw;
           margin-top: 90px;
         }
-        .wrapper {
-            width: 280px;
-            height: 480px;
-            perspective: 800px;
-            position: relative;
-            margin: 0 170px 0 0;
-        }
-
-#buscar {
-            display: flex;
-            align-items: center;
-            margin: 20px;
-            border: 3px solid #5F489D;
-            border-radius: 20px;
-            overflow: hidden;
-            margin-top:-10px;
-        }
-
-        .btn-lupa {
-            text-decoration: none;
-            position: relative;
-            display: flex;
-            align-items: center;
-            padding: 8px;
-            background-color: #f9f9f9;
-        }
-
-        .lupa {
-            width: 20px;
-            height: 20px;
-            margin-right: 5px;
-        }
-
-        #buscar-input {
-            padding: 8px;
-            border: none;
-            border-radius: 4px;
-            flex: 1;
-            outline:none;
-        }
-
-
         .linha-footer, .sobre-footer {
                 font-family: 'Font';
                 color: #5F489D;
@@ -447,11 +459,11 @@ if(isset($_SESSION['email']['Imagem'])){
                 margin-left: 800px;
                 margin-top: -90px;
             }
-            .video-ukulele{
-                width: 100%;
-                height: 100%;
-            }
-            i {
+            .container i {
+    display: none;
+}
+
+i {
     color: #5F489D;
     float: right;
     display: none;
@@ -512,6 +524,47 @@ img.carrinho{
     margin-top:-5px;
     margin-right:5px;
 }
+.wrapper {
+            width: 280px;
+            height: 480px;
+            perspective: 800px;
+            position: relative;
+            margin: 0 170px 0 0;
+        }
+
+#buscar {
+            display: flex;
+            align-items: center;
+            margin: 20px;
+            border: 3px solid #5F489D;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top:-10px;
+        }
+
+        .btn-lupa {
+            text-decoration: none;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .lupa {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+
+        #buscar-input {
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            flex: 1;
+            outline:none;
+        }
+
 :root {
     --text-color: #5F489D;
     --white: #5F489D;
@@ -788,9 +841,7 @@ input::placeholder {
     fill: #000;
 }
 
-.btn-carrinho-2, .btn-contato-2{
-    display:none;
-}
+
 /*? mobile */
 @media (min-width: 926px) {
     .footer-logo {
@@ -837,7 +888,6 @@ input::placeholder {
     .botao-bars{
         display: flex;
     }
-
     .carrossel {
         width: 320px;
         display: flex;
@@ -896,16 +946,7 @@ input::placeholder {
         margin-left:190px;
         width:100px;
     }
-    .video-ukulele{
-        margin-top:10px;
-    }
-    .nav-cont{
-    margin-left:0;
-}
-.btn-carrinho{
-    display:none;
-}
-.img-footer{
+    .img-footer{
     width:100px;
     margin-left:85px;
     margin-top:10px;
@@ -933,257 +974,292 @@ input::placeholder {
 .footer-columns section{
     flex:0;
 }
+.nav-cont{
+    margin-left:0;
+}
+.btn-lupa{
+    display:none;
+}
+.btn-carrinho-2{
+    margin-top:-5px;
+}
+.btn-carrinho{
+    display:none;
+}
+.btn-contato{
+    display:none;
+}
+.btn-contato-2{
+    display:flex;
+    margin-top:-5px;
+}
+.bars{
+    display:flex;
+    margin-top:10px;
+}
+#buscar{
+    margin-top:5px;
+}
 .icones{
         display:flex;
         justify-content: end;
         margin-top:-40px;
         width:
     }
-    .btn-contato-2{
-       display:flex;
-       margin-top:-5px;
+    .img-carrinho, .boneco, .lupa{
+        width:25px;
     }
-    .btn-contato{
-        display:none;
-    }
-    #buscar{
-        margin-top:5px;
-    }
-    }
+    .bars {
+    display: flex;
+    margin-top: 10px;
+  }
+  .power{
+    margin-top:10px;
+  }
+  .meio{
+    display:none;
+  }
+  .mover-caixas{
+    margin-top:-10px;
+  }
+}
     </style>
 </head>
 <body>
-    <div class="loading-screen">
-        <video class="video-bg" autoplay muted loop>
-            <source src="videos/logotipo (2).mp4" type="video/mp4">
-        </video>
-    </div>
+  <div class="loading-screen">
+    <video class="video-bg" autoplay muted loop>
+        <source src="videos/logotipo (2).mp4" type="video/mp4">
+    </video>
+</div>
 
-    <button class="botao-bars" onclick="OpenMenu()">
-            <i class="fa-solid fa-bars" id="bars"></i>
-        </button>
-        <a class="logo-michael-1" href="index.php">
-            <img class="logo-1" src="img/m.png" alt="logo">
-        </a>
+<button class="botao-bars" onclick="OpenMenu()">
+    <i class="fa-solid fa-bars" id="bars"></i>
+</button>
+<a class="logo-michael-1" href="index.html">
+    <img class="logo-1" src="img/m.png" alt="logo">
+</a>
 
-        <div class="icones">
+<div class="icones">
             <a class="btn-carrinho-2" href="#"><img class="carrinho" src="img/Carinho.png" alt=""><button></button></a>
-            <?php if(isset($_SESSION['email'])){
-                echo "<img class='recebido' src='$imagem'></img>";
-                echo "<a class='btn-sair' href='sair.php'><button>Sair</button></a>";
-            }else{
-                echo "<a class='btn-contato-2' href='cadastro.php'><img class='boneco' src='svg/boneco.svg'
-                    alt=''><button></button></a>";
-            }  
-            ?>                  
+<a class='btn-contato-2' href='cadastro.html'><img class='boneco' src='svg/boneco.svg'
+                    alt=''><button></button></a>                     
         </div>
-    
-    <!-- Menu -->
-    <div class="container" id="container">
-        <a class="logo-michael" href="index.php">
-            <img class="logo" src="img/m.png" alt="logo">
-        </a>
-        <ul class="nav-cont" id="produtos-container">
-            <li class="li" id="produtos-link">
-                <a id="bao" class="linha" href="#">Produtos</a>
-                <ul class="nav-produtos" id="produtos-menu">
-                    <li><a href="guitarra.php">Guitarra</a></li>
-                    <li><a href="baixo.php">Baixo</a></li>
-                    <li><a href="ukulele.php">Ukulele</a></li>
-                    <li><a href="bateria.php">Bateria</a></li>
-                </ul>
-            </li>
-            <li class="li"><a id="bao" class="linha" href="infantis.php">Infantis</a></li>
-            <li class="li"><a id="bao" class="linha" href="artistas.php">Artistas</a></li>
-            <li class="li"><a id="bao" class="sobre" href="index.php">Sobre a Michael</a></li>
-            <a class="btn-carrinho" href="#"><img class="carrinho" src="img/Carinho.png" alt=""><button></button></a>
-            <?php if(isset($_SESSION['email'])){
-                echo "<img class='recebido' src='$imagem'></img>";
-                echo "<a class='btn-sair' href='sair.php'><button>Sair</button></a>";
-            }else{
-                echo "<a class='btn-contato' href='cadastro.php'><img class='boneco' src='svg/boneco.svg'
-                    alt=''><button></button></a>";
-            }  
-            ?>
-                                    <div id="buscar">
+
+<!-- Menu -->
+<div class="container" id="container">
+<a class="logo-michael" href="index.html">
+    <img class="logo" src="img/m.png" alt="logo">
+</a>
+<ul class="nav-cont" id="produtos-container">
+    <li class="li" id="produtos-link">
+        <a id="bao" class="linha" href="#">Produtos</a>
+        <ul class="nav-produtos" id="produtos-menu">
+            <li><a href="guitarra.html">Guitarra</a></li>
+            <li><a href="baixo.html">Baixo</a></li>
+            <li><a href="ukulele.html">Ukulele</a></li>
+            <li><a href="bateria.html">Bateria</a></li>
+        </ul>
+    </li>
+    <li class="li"><a id="bao" class="linha" href="infantis.html">Infantis</a></li>
+    <li class="li"><a id="bao" class="linha" href="artistas.html">Artistas</a></li>
+    <li class="li"><a id="bao" class="sobre" href="index.html">Sobre a Michael</a></li>
+    <a class="btn-carrinho" href="#"><img class="carrinho" src="img/Carinho.png" alt=""><button></button></a>
+<a class='btn-contato-2' href='cadastro.html'><img class='boneco' src='svg/boneco.svg'
+                    alt=''><button></button></a>     
+                            <div id="buscar">
             <a class="btn-lupa" href="#"><img class="lupa" src="svg/lupa.svg" alt=""><button></button></a>
                 <input type="text" id="buscar-input" placeholder="Pesquisar Produto" oninput="buscarProduto()">
                 <button onclick="buscarSite()"></button>
             </div>
-        </ul>
+</ul>
+</div>
+
+    <div class="imagem-menu">
+        <div class="power">
+            <img class="power" src="img/Power Gate.png" alt="">
+        </div>
     </div>
 
-    <div class="video-inicio">
-        <video src="videos/ukulele-banner.mp4" class="video-ukulele" autoplay loop muted></video>
+    <div class="meio">
+        <div class="meio1">
+        <div class="texto-meio">
+            <h1 class="texto-centro">Sobre a PowerGate</h1>
+            <p class="conteudo-centro">Power Gate é uma combinação que harmoniza perfeitamente no mundo da música. A Michael Instrumentos é conhecida por seu compromisso com a qualidade e a inovação no desenvolvimento de instrumentos musicais, enquanto a Power Gate se destaca por sua excelência na fabricação e venda de caixas de bateria. Juntas, essas empresas oferecem aos músicos uma gama de produtos que elevam o desempenho e a experiência musical.</p>
+        </div>
+        <div class="imagem-meio">
+            <img class="imagem-centro" src="img/power.png" alt="">
+        
     </div>
 
+    </div>
+    </div>    
     
-        <!-- Caixa 1  -->
-        <div class="fundo-caixas">
-            <div class="mover-caixas">
-              <div class="container-caixas">
-                <div class="sub-caixas">
-                <div class="caixa-1">
-                  <div class="wrapper">
-                      <div class="card">
-                        <div class="front">
-                          <h1>UKULELE ELÉTRICO MICHAEL</h1>
-                          <p>Michael</p>
-                          <p class="price">R$ 250.00</p>
-                        </div>
-                        <div class="right">
-                          <h2>UKULELE</h2>
-                          <ul>
-                            <li class="lii">ELÉTRICO</li>
-                            <li class="lii">SOPRANO</li>
-                            <li class="lii">MK21</li>
-                            <li class="lii">ZBE (ZEBRA)</li>
-                          </ul>
-                          <button class="comprar">Comprar</button>
-                        </div>
-                      </div>
-                      <div class="img-wrapper">
-                           <img src='img/ukulele-1.png' alt=''>    
-                      </div>
-                    </div> 
-                  </div>
-                
-                  <!-- Caixa 2 -->
-                  <div class="caixa-2">
-                    <div class="wrapper">
-                      <div class="card">
-                        <div class="front">
-                          <h1>UKULELE ACÚSTICO MICHAEL</h1>
-                          <p>Michael</p>
-                          <p class="price">R$ 250.00</p>
-                        </div>
-                        <div class="right">
-                          <h2>UKULELE</h2>
-                          <ul>
-                            <li class="lii">ACÚSTICO</li>
-                            <li class="lii">SOPRANO</li>
-                            <li class="lii">MK21 MH (MAHOGANY)</li>
-                          </ul>
-                          <button class="comprar">Comprar</button>
-                        </div>
-                      </div>
-                      <div class="img-wrapper">
-                           <img src='img/UKULELE-2.png' alt=''>    
-                      </div>
-                    </div> 
-                  </div>
-                 
-                  <!-- Caixa 3 -->
-                  <div class="caixa-3">
-                    <div class="wrapper">
-                      <div class="card">
-                        <div class="front">
-                          <h1>UKULELE ACÚSTICO MICHAEL</h1>
-                          <p>Michael</p>
-                          <p class="price">R$ 200.00</p>
-                        </div>
-                        <div class="right">
-                          <h2>UKULELE</h2>
-                          <ul>
-                            <li class="lii">ACÚSTICO</li>
-                            <li class="lii">CONCERT</li>
-                            <li class="lii">MK23 MH (MAHOGANY)</li>
-                          </ul>
-                          <button class="comprar">Comprar</button>
-                        </div>
-                      </div>
-                      <div class="img-wrapper">
-                           <img src='img/UKULELE-3.png' alt=''>    
-                      </div>
-                    </div> 
-                  </div>
-                  </div>
+    <!-- Caixa 1  -->
+    <div class="fundo-caixas">
+  <div class="mover-caixas">
+    <div class="container-caixas">
+      <div class="sub-caixas">
+      <div class="caixa-1">
+        <div class="wrapper">
+            <div class="card">
+              <div class="front">
+                <h1>CAIXA POWERGATE </h1>
+                <p>Michael</p>
+                <p class="price">R$ 300.00</p>
               </div>
-          </div>
-          
-          
-            <div class="mover-caixas">
-              <div class="container-caixas">
-                <div class="sub-caixas">
-                <div class="caixa-4">
-                  <div class="wrapper">
-                      <div class="card">
-                        <div class="front">
-                          <h1>UKULELE ACÚSTICO MICHAEL</h1>
-                          <p>Michael</p>
-                          <p class="price">R$ 300.00</p>
-                        </div>
-                        <div class="right">
-                          <h2>UKULELE</h2>
-                          <ul>
-                            <li class="lii">ACÚSTICO</li>
-                            <li class="lii">TENOR</li>
-                            <li class="lii">MK27 ZB (ZEBRA)</li>
-                          </ul>
-                          <button class="comprar">Comprar</button>
-                        </div>
-                      </div>
-                      <div class="img-wrapper">
-                           <img src='img/UKULELE-4.png' alt=''>    
-                      </div>
-                    </div> 
-                  </div>
-                
-                  <!-- Caixa 2 -->
-                  <div class="caixa-5">
-                    <div class="wrapper">
-                      <div class="card">
-                        <div class="front">
-                          <h1>UKULELE ELÉTRICO MICHAEL</h1>
-                          <p>Michael</p>
-                          <p class="price">R$ 400.00</p>
-                        </div>
-                        <div class="right">
-                          <h2>UKULELE</h2>
-                          <ul>
-                            <li class="lii">ELÉTRICO</li>
-                            <li class="lii">CONCERT</li>
-                            <li class="lii">MK23 ZBE (ZEBRA)</li>
-                          </ul>
-                          <button class="comprar">Comprar</button>n>
-                        </div>
-                      </div>
-                      <div class="img-wrapper">
-                           <img src='img/ukulele-5.png' alt=''>    
-                      </div>
-                    </div> 
-                  </div>
-                 
-                  <!-- Caixa 3 -->
-                  <div class="caixa-6">
-                    <div class="wrapper">
-                      <div class="card">
-                        <div class="front">
-                          <h1>UKULELE ELÉTRICO MICHAEL</h1>
-                          <p>Michael</p>
-                          <p class="price">R$ 400.00</p>
-                        </div>
-                        <div class="right">
-                          <h2>UKULELE</h2>
-                          <ul>
-                            <li class="lii">ELÉTRICO</li>
-                            <li class="lii">CONCERT</li>
-                            <li class="lii">MK23 MHE (MAHOGANY)</li>
-                          </ul>
-                          <button class="comprar">Comprar</button>
-                        </div>
-                      </div>
-                      <div class="img-wrapper">
-                           <img src='img/ukulele-6.png' alt=''>    
-                      </div>
-                    </div> 
-                  </div>
-                  </div>
+              <div class="right">
+                <h2>CAIXA</h2>
+                <ul>
+                  <li class="lii">BIRCH</li>
+                  <li class="lii">PGB1255</li>
+                  <li class="lii">FRD</li>
+                  <li class="lii">12x5,5 </li>
+                </ul>
+                <button class="comprar">Comprar</button>
               </div>
-          </div>
-           </div>
-          
-           <footer class="footer">
+            </div>
+            <div class="img-wrapper">
+                 <img src='img/caixa.png' alt=''>    
+            </div>
+          </div> 
+        </div>
+      
+        <!-- Caixa 2 -->
+        <div class="caixa-2">
+          <div class="wrapper">
+            <div class="card">
+              <div class="front">
+                <h1>CAIXA POWERGATE STAGE </h1>
+                <p>Michael</p>
+                <p class="price">R$ 250.00</p>
+              </div>
+              <div class="right">
+                <h2>CAIXA</h2>
+                <ul>
+                  <li class="lii">PGS1255</li>
+                  <li class="lii">JBK</li>
+                  <li class="lii">12x5,5</li>
+                </ul>
+                <button class="comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="img-wrapper">
+                 <img src='img/caixa-2.png' alt=''>    
+            </div>
+          </div> 
+        </div>
+       
+        <!-- Caixa 3 -->
+        <div class="caixa-3">
+          <div class="wrapper">
+            <div class="card">
+              <div class="front">
+                <h1>CAIXA POWERGATE MAPLE</h1>
+                <p>Michael</p>
+                <p class="price">R$ 350.00</p>
+              </div>
+              <div class="right">
+                <h2>CAIXA</h2>
+                <ul>
+                  <li class="lii">PGM1455</li>
+                  <li class="lii">NTS</li>
+                  <li class="lii">14x5,5</li>
+                </ul>
+                <button class="comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="img-wrapper">
+                 <img src='img/caixa-3.png' alt=''>    
+            </div>
+          </div> 
+        </div>
+        </div>
+    </div>
+</div>
+
+
+  <div class="mover-caixas">
+    <div class="container-caixas">
+      <div class="sub-caixas">
+      <div class="caixa-4">
+        <div class="wrapper">
+            <div class="card">
+              <div class="front">
+                <h1>CAIXA POWERGATE BIRCH </h1>
+                <p>Michael</p>
+                <p class="price">R$ 200.00</p>
+              </div>
+              <div class="right">
+                <h2>CAIXA</h2>
+                <ul>
+                  <li class="lii">PGB1455</li>
+                  <li class="lii">FRD</li>
+                  <li class="lii">14x5,5</li>
+                </ul>
+                <button class="comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="img-wrapper">
+                 <img src='img/caixa-4.png' alt=''>    
+            </div>
+          </div> 
+        </div>
+      
+        <!-- Caixa 2 -->
+        <div class="caixa-5">
+          <div class="wrapper">
+            <div class="card">
+              <div class="front">
+                <h1>CAIXA POWERGATE STAGE </h1>
+                <p>Michael</p>
+                <p class="price">R$ 150.00</p>
+              </div>
+              <div class="right">
+                <h2>CAIXA</h2>
+                <ul>
+                  <li class="lii">PGS0806</li>
+                  <li class="lii">JBK</li>
+                  <li class="lii">08x06</li>
+                </ul>
+                <button class="comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="img-wrapper">
+                 <img src='img/caixa-5.png' alt=''>    
+            </div>
+          </div> 
+        </div>
+       
+        <!-- Caixa 3 -->
+        <div class="caixa-6">
+          <div class="wrapper">
+            <div class="card">
+              <div class="front">
+                <h1>CAIXA POWERGATE STAGE</h1>
+                <p>Michael</p>
+                <p class="price">R$ 350.00</p>
+              </div>
+              <div class="right">
+                <h2>CAIXA</h2>
+                <ul>
+                  <li class="lii">PGS1408</li>
+                  <li class="lii">JBK</li>
+                  <li class="lii">14x08</li>
+                </ul>
+                <button class="comprar">Comprar</button>
+              </div>
+            </div>
+            <div class="img-wrapper">
+                 <img src='img/caixa-6.png' alt=''>    
+            </div>
+          </div> 
+        </div>
+        </div>
+    </div>
+</div>
+ </div>
+
+ <footer class="footer">
             <div class="footer-wrapper">
                 <div class="social-wrapper">
                     <div class='social-links'>
@@ -1227,16 +1303,16 @@ input::placeholder {
                             <h3>Produtos</h3>
                             <ul>
                                 <li>
-                                    <a href="guitarra.php" title="API">Guitarra</a>
+                                    <a href="guitarra.html" title="API">Guitarra</a>
                                 </li>
                                 <li>
-                                    <a href="baixo.php" title="Pricing">Baixo</a>
+                                    <a href="baixo.html" title="Pricing">Baixo</a>
                                 </li>
                                 <li>
-                                    <a href="ukulele.php" title="Documentation">Ukulele</a>
+                                    <a href="ukulele.html" title="Documentation">Ukulele</a>
                                 </li>
                                 <li>
-                                    <a href="bateria.php" title="Release Notes">Bateria</a>
+                                    <a href="bateria.html" title="Release Notes">Bateria</a>
                                 </li>
                             </ul>
                         </section>
@@ -1303,11 +1379,11 @@ input::placeholder {
                     <small>© Michael Instrumentos <span id="year"></span>, All rights reserved</small>
                 </div>
             </div>
-        </footer>   
-     
+        </footer>
+
     <script>
-               // Quando todo o conteúdo da página é carregado
-       window.addEventListener("load", function() {
+       // Quando todo o conteúdo da página é carregado
+window.addEventListener("load", function() {
     setTimeout(function() {
         document.querySelector(".loading-screen").style.opacity = "0";
         setTimeout(function() {
@@ -1315,7 +1391,6 @@ input::placeholder {
         }, 100); // Tempo de transição (500 ms)
     }, 400); // Tempo de exibição (5000 ms)
 });
-
 const produtosLink = document.getElementById("produtos-link");
         const produtosMenu = document.getElementById("produtos-menu");
 
@@ -1334,21 +1409,42 @@ const produtosLink = document.getElementById("produtos-link");
         menu.style.display = 'flex';
     }
 }
-function buscarProduto() {
+
+function buscarProduto(){
+            const buscarInput = document.getElementById("buscar-input")
+            const produto = document.getElementsByClassName("wrapper")
+
+            for(let i = 0; i<produto.length; i++){
+                const produtoNome = produto[i].querySelector("h1").innerText.toLowerCase()
+
+                if(produtoNome.includes(buscarInput.value.toLowerCase())) {
+                    produto[i].style.display = "block" 
+                } else {
+                 produto[i].style.display = "none"
+                    }
+                }
+            }
+            function buscarProduto() {
     const buscarInput = document.getElementById("buscar-input").value.toLowerCase();
     const produtos = document.querySelectorAll(".wrapper");
-    const videoGuita = document.querySelector(".video-ukulele");
+    const videoGuita = document.querySelector(".power");
+    const videoGuita2 = document.querySelector(".meio");
 
     produtos.forEach(produto => {
         const produtoNome = produto.querySelector("h1").innerText.toLowerCase();
 
         if (produtoNome.includes(buscarInput)) {
             produto.style.display = "block";
-            if (videoGuita) {
-                videoGuita.style.display = "none";
-            }
         } else {
             produto.style.display = "none";
+        }
+
+        if (videoGuita) {
+            videoGuita.style.display = buscarInput ? "none" : "block";
+        }
+
+        if (videoGuita2) {
+            videoGuita2.style.display = buscarInput ? "none" : "block";
         }
     });
 }
@@ -1357,7 +1453,8 @@ function buscarProduto() {
 document.getElementById("buscar-input").addEventListener("input", function () {
     if (this.value === "") {
         const produtos = document.querySelectorAll(".wrapper");
-        const videoGuita = document.querySelector(".video-ukulele");
+        const videoGuita = document.querySelector(".infantil-video");
+        const videoGuita2 = document.querySelector(".meio");
 
         produtos.forEach(produto => {
             produto.style.display = "block";
@@ -1366,9 +1463,13 @@ document.getElementById("buscar-input").addEventListener("input", function () {
         if (videoGuita) {
             videoGuita.style.display = "block";
         }
+
+        if (videoGuita2) {
+            videoGuita2.style.display = "block";
+        }
     }
 });
-document.getElementById("year").innerHTML = new Date().getFullYear();  
+            document.getElementById("year").innerHTML = new Date().getFullYear();  
     </script>
 </body>
 </html>

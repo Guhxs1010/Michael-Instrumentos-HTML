@@ -1,9 +1,3 @@
-<?php
-session_start();
-if(isset($_SESSION['email']['Imagem'])){
-    $imagem = $_SESSION['email']['Imagem'];
-}
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -577,38 +571,32 @@ img.carrinho{
     <button class="botao-bars" onclick="OpenMenu()">
             <i class="fa-solid fa-bars" id="bars"></i>
         </button>
-        <a class="logo-michael-1" href="index.php">
+        <a class="logo-michael-1" href="index.html">
             <img class="logo-1" src="img/m.png" alt="logo">
         </a>
     
     <!-- Menu -->
     <div class="container" id="container">
-    <a class="logo-michael" href="index.php">
+    <a class="logo-michael" href="index.html">
             <img class="logo" src="img/m.png" alt="logo">
         </a>
         <ul class="nav-cont" id="produtos-container">
             <li class="li" id="produtos-link">
                 <a id="bao" class="linha" href="#">Produtos</a>
                 <ul class="nav-produtos" id="produtos-menu">
-                    <li><a href="guitarra.php">Guitarra</a></li>
-                    <li><a href="baixo.php">Baixo</a></li>
-                    <li><a href="ukulele.php">Ukulele</a></li>
-                    <li><a href="bateria.php">Bateria</a></li>
+                    <li><a href="guitarra.html">Guitarra</a></li>
+                    <li><a href="baixo.html">Baixo</a></li>
+                    <li><a href="ukulele.html">Ukulele</a></li>
+                    <li><a href="bateria.html">Bateria</a></li>
                 </ul>
             </li>
-            <li class="li"><a id="bao" class="linha" href="infantis.php">Infantis</a></li>
-            <li class="li"><a id="bao" class="linha" href="artistas.php">Artistas</a></li>
-            <li class="li"><a id="bao" class="sobre" href="index.php">Sobre a Michael</a></li>
+            <li class="li"><a id="bao" class="linha" href="infantis.html">Infantis</a></li>
+            <li class="li"><a id="bao" class="linha" href="artistas.html">Artistas</a></li>
+            <li class="li"><a id="bao" class="sobre" href="index.html">Sobre a Michael</a></li>
             <a class="btn-carrinho" href="#"><img class="carrinho" src="img/Carinho.png" alt=""><button></button></a>
-            <?php if(isset($_SESSION['email'])){
-                echo "<img class='recebido' src='$imagem'></img>";
-                echo "<a class='btn-sair' href='sair.php'><button>Sair</button></a>";
-            }else{
-                echo "<a class='btn-contato' href='cadastro.php'><img class='boneco' src='svg/boneco.svg'
-                    alt=''><button></button></a>";
-            }  
-            ?>
-                                    <div id="buscar">
+<a class='btn-contato-2' href='cadastro.html'><img class='boneco' src='svg/boneco.svg'
+                    alt=''><button></button></a>     
+                                       <div id="buscar">
             <a class="btn-lupa" href="#"><img class="lupa" src="svg/lupa.svg" alt=""><button></button></a>
                 <input type="text" id="buscar-input" placeholder="Pesquisar Produto" oninput="buscarProduto()">
                 <button onclick="buscarSite()"></button>
@@ -622,17 +610,9 @@ img.carrinho{
     <div class="caixa">
      
     
-    <?php
-    if(isset($_GET['fail']) && $_GET['fail'] == 1) {
-        echo 'erro ao cadastrar,usuario ou senha incorretos';
-    } elseif(isset($_GET['fail']) && $_GET['fail'] == 0){
-        echo 'usuario cadastrado com sucesso';
-    }
 
- 
-    ?>
 
-        <form action="processar.php" method="post">
+        <form  method="post">
             <h1 class="texto1">Cadastro</h1>
        
             <div class="card">
