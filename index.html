@@ -105,11 +105,38 @@
     background-color: #5F489D;
 }
 
+
+
 .saiba {
     position: absolute;
     z-index: 999;
     top: 280px;
     left: 2550px;
+    opacity: 1;
+    border: 1px solid white;
+    background-color: #5F489D;
+    /* Fundo transparente */
+    color: #ffffff;
+    font-family: 'Font';
+    width: 100px;   
+    height: 50px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: block;
+    line-height: 50px;
+    text-align: center;
+}
+
+.saiba:hover {
+    color: #5F489D;
+    background-color: #ffffff;
+    transition: 1s;
+}
+.saiba-infantis {
+    position: absolute;
+    z-index: 999;
+    top: 350px;
+    left: 5780px;
     opacity: 1;
     border: 1px solid white;
     background-color: #5F489D;
@@ -125,7 +152,7 @@
     text-align: center;
 }
 
-.saiba:hover {
+.saiba-infantis:hover {
     color: #5F489D;
     background-color: #ffffff;
     transition: 1s;
@@ -286,6 +313,7 @@
 #produtos-link a {
     text-decoration: none;
     color: #5F489D;
+    width: 100px;
     font-family: 'Font';
     font-size: 18px;
     display: block;
@@ -740,6 +768,11 @@ input::placeholder {
     display:flex;
     flex-wrap:nowrap;
 }
+
+.powergate{
+    display: flex;
+}
+
 @media (max-width:780px) {
     .container{
         display: none;
@@ -946,6 +979,7 @@ input::placeholder {
                     <li><a href="baixo.html">Baixo</a></li>
                     <li><a href="ukulele.html">Ukulele</a></li>
                     <li><a href="bateria.html">Bateria</a></li>
+                    <li><a class="powergate" href="power.html">Power Gate</a></li>
                 </ul>
             </li>
             <li class="li"><a id="bao" class="linha" href="infantis.html">Infantis</a></li>
@@ -966,6 +1000,7 @@ input::placeholder {
         </ul>
     </div>
 
+    <div class="descerScroll"></div>
     <!-- Carrrossel -->
     <div class="carrossel">
         <div class="carrossel-container">
@@ -982,6 +1017,11 @@ input::placeholder {
             <video class="video" autoplay muted loop>
                 <source src="videos/Bateria.mp4" type="video/mp4">
             </video>
+            
+            <a href="infantis.html"><button class="saiba-infantis">Saiba Mais</button></a>
+            <video class="video" autoplay muted loop>
+                <source src="videos/carrossel-infantil.mp4" type="video/mp4">
+            </video>
             <!-- Adicione mais vídeos aqui -->
         </div>
         <!-- Bolinhas Carrossel -->
@@ -989,6 +1029,7 @@ input::placeholder {
             <span class="bolinha ativa" data-index="0"></span>
             <span class="bolinha" data-index="1"></span>
             <span class="bolinha" data-index="2"></span>
+            <span class="bolinha" data-index="3"></span>
         </div>
     </div>
 
@@ -1193,15 +1234,16 @@ let timer;
 
 function nextImage() {
     currentIndex++;
-    if (currentIndex >= carrosselContainer.children.length - 1) {
+    if (currentIndex >= carrosselContainer.children.length / 2 + 1) {
         currentIndex = 0;
     }
     updateCarousel();
 }
 
+
 function updateCarousel() {
     const imageWidth = carrosselContainer.children[0].offsetWidth;
-    carrosselContainer.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
+    carrosselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
     updateBolinhas();
 }
 
@@ -1243,6 +1285,25 @@ function OpenMenu() {
 
 document.getElementById("year").innerHTML = new Date().getFullYear();   
 
+const Observa = new IntersectionObserver((arrastar) => {
+    arrastar.forEach((rasta) =>{
+        if (rasta.isIntersecting) {
+        rasta.target.classList.add('depoisScroll')
+        } else{
+            rasta.target.classList.remove('depoisScroll')
+        }
+    })
+})
+
+const descerScroll = document.querySelectorAll(".descerScroll");
+const leftScroll = document.querySelectorAll(".leftScroll");
+const rightScroll = document.querySelectorAll(".rightScroll");
+const subirScroll = document.querySelectorAll(".subirScroll");
+
+descerScroll.forEach((descerScroll) => Observa.observe (descerScroll))
+leftScroll.forEach((leftScroll) => Observa.observe(leftScroll));
+rightScroll.forEach((rightScroll) => Observa.observe(rightScroll));
+subirScroll.forEach((subirScroll) => Observa.observe(subirScroll));
     </script>
 
 
