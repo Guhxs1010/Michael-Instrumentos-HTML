@@ -1,126 +1,182 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrossel Coca-Cola</title>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Side Bar Navigation</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Work+Sans:400,600" rel="stylesheet">
     <style>
-        /* Estilos para o carrossel */
-        .carousel {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 400px;
-            overflow: hidden;
-        }
+        body {
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: white;
+  opacity:1;
+  font-family: 'work sans', sans serif;
+  font-size: 1.5em;
+  font-weight: 400;
+  transition: 200ms;
+}
+a:hover {
+  opacity:0.5;
+}
+ul {
+  padding: 0;
+  list-style-type: none;
+}
 
-        .carousel-inner {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
 
-        .carousel-item {
-            flex: 0 0 100%;
-        }
 
-        .carousel-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.container {
+  margin-top: 50px; 
+  Display: flex;
+}
+.phone {
+/*   background-color: #36383F; */
+/*   border-radius: 40px; */
+  width: 300px;
+  height: 600px;
+  Display: flex;
+  justify-content: center;
+  align-items: center;
+/*   box-shadow: 30px 50px 100px #85888C; */
+}
+.content {
+/*   border: 1px solid #36383F; */
+  border-radius: 20px;
+  width: 74%;
+  height: 91%;
+/*   background-color: #F5F6FA; */
+  overflow: hidden;
+}
+nav {
+/*   background-color: #1E1E23; */
+  height: 65px;
+}
 
-        /* Estilos para os controles do carrossel */
-        .carousel-controls {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
 
-        .carousel-controls button {
-            width: 15px;
-            height: 15px;
-            background-color: rgba(0, 0, 0, 0.3);
-            border: none;
-            border-radius: 50%;
-            margin: 0 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease-in-out;
-        }
+#menuToggle {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 25px;
+  left: 25px;
+  width: 30px;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
+/*   background-color: #1E1E23;  */
+}
 
-        .carousel-controls button.active {
-            background-color: rgba(0, 0, 0, 0.7);
-        }
+#menuToggle input
+{
+
+  display: flex;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;
+  
+}
+
+#menuToggle span
+{
+  display: flex;
+  width: 29px;
+  height: 2px;
+  margin-bottom: 5px;
+  position: relative;
+  background:#5F489D ;
+  border-radius: 3px;
+  z-index: 1;
+  transform-origin: 5px 0px;
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-3px, -1px);
+  background: white;
+}
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+#menu
+{
+  position: absolute;
+  width: 180px;
+  height: 400px;
+  box-shadow: 0 0 10px white;
+  margin: -50px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  background-color: #5F489D;
+  -webkit-font-smoothing: antialiased;
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 10px 0;
+  transition-delay: 2s;
+}
+
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
     </style>
-</head>
-<body>
-    <div class="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item">
-                <img src="img/baixo-3.png" alt="Imagem 1">
-            </div>
-            <div class="carousel-item">
-                <img src="img/artista-6.png" alt="Imagem 2">
-            </div>
-            <div class="carousel-item">
-                <img src="img/artista-1.png" alt="Imagem 3">
-            </div>
+  </head>
+  <body>
+    
+    <div class="container">
+      <div class="phone">
+        <div class="content">
+          
+          <nav role="navigation">
+            <div id="menuToggle">
+              <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+            <ul id="menu">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Info</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+           </div>
+          </nav>
         </div>
+       </div>
     </div>
-
-    <div class="carousel-controls">
-        <button class="active"></button>
-        <button></button>
-        <button></button>
-    </div>
-
-    <script>
-        const carouselInner = document.querySelector('.carousel-inner');
-        const carouselItems = Array.from(carouselInner.children);
-        const carouselControls = document.querySelectorAll('.carousel-controls button');
-
-        let currentIndex = 0;
-        let timer;
-
-        function nextSlide() {
-            currentIndex++;
-            if (currentIndex >= carouselItems.length) {
-                currentIndex = 0;
-            }
-            updateCarousel();
-        }
-
-        function updateCarousel() {
-            carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
-            updateControls();
-        }
-
-        function updateControls() {
-            carouselControls.forEach((control, index) => {
-                if (index === currentIndex) {
-                    control.classList.add('active');
-                } else {
-                    control.classList.remove('active');
-                }
-            });
-        }
-
-        carouselControls.forEach((control, index) => {
-            control.addEventListener('click', () => {
-                currentIndex = index;
-                updateCarousel();
-            });
-        });
-
-        function startAutoSlide() {
-            timer = setInterval(nextSlide, 5000);
-        }
-
-        startAutoSlide();
-    </script>
-</body>
+   
+  </body>
 </html>
