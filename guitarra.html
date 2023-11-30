@@ -799,7 +799,7 @@ input::placeholder {
     .phone {
 /*   background-color: #36383F; */
   /* border-radius: 40px; */
-  width: 400px;
+  width:300px;
   height: 1000px;
   position: absolute;
   top: -50px;
@@ -809,10 +809,13 @@ input::placeholder {
   align-items: center;
 /*   box-shadow: 30px 50px 100px #85888C; */
 }
+.menuAtivo{
+   overflow: hidden;
+}
 .content {
   width: 74%;
   height: 91%;
-  margin-right: 200px;
+  margin-right:80px;
 }
 nav {
   height: 65px;
@@ -877,6 +880,7 @@ nav {
   opacity: 1;
   transform: rotate(45deg) translate(-3px, -1px);
   background: white;
+  overflow: hidden;
 }
 #menuToggle input:checked ~ span:nth-last-child(3)
 {
@@ -912,6 +916,10 @@ nav {
 #menuToggle input:checked ~ ul
 {
   transform: none;
+  overflow: hidden;
+}
+body{
+    overflow: scroll;
 }
 .tudo{
     padding-top: 40px;
@@ -940,6 +948,7 @@ nav {
 }
 .btn-contato-2, .btn-carrinho-2{
     z-index: 999;
+    margin-top: 20px;
 }
     .container-burguer{
     display: flex;
@@ -990,6 +999,9 @@ display:none
     .logo-michael-1{
         display: flex;
         justify-content: center;
+        position: absolute;
+        left: 45%;
+        z-index: 999;
     }
     .logo-1{
         display: flex;
@@ -1037,7 +1049,7 @@ display:none
     .icones{
         display:flex;
         justify-content: end;
-        margin-top:-40px;
+        margin-top:-20px;
     }
     .img-carrinho, .boneco, .lupa{
         width:25px;
@@ -1049,7 +1061,7 @@ display:none
     }
     .btn-contato-2{
        display:flex;
-       margin-top:-5px;
+       margin-top:20px;
     }
     .btn-contato{
         display:none;
@@ -1114,7 +1126,7 @@ display:none
                 
                 <nav role="navigation">
                   <div id="menuToggle">
-                    <input type="checkbox" />
+                    <input type="checkbox" id="checkbox"  />
                       <span></span>
                       <span></span>
                       <span></span>
@@ -1478,6 +1490,16 @@ display:none
         }, 100); // Tempo de transição (500 ms)
     }, 400); // Tempo de exibição (5000 ms)
 });
+
+const checkbox = document.getElementById("checkbox")
+const body = document.querySelector('body')
+checkbox.addEventListener("change",function(){
+    if(checkbox.checked){
+    body.style.overflow = "hidden"
+}else{
+    body.style.overflow = "scroll"
+}
+})
 
 const produtosLink = document.getElementById("produtos-link");
         const produtosMenu = document.getElementById("produtos-menu");
