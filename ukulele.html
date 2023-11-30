@@ -792,7 +792,9 @@ input::placeholder {
         margin-right: auto;
     }
 }
-
+.container-burguer{
+    display: none;
+}
 @media (max-width: 800px) {
     .footer-top {
         display: flex;
@@ -821,12 +823,175 @@ input::placeholder {
 @media (max-width:780px) {
     .container{
         display: none;
-        background-color: #5F489D;
-        margin-top:10px;
     }
-    .container li {
-        padding: 10px;
-    }
+    .phone {
+/*   background-color: #36383F; */
+  /* border-radius: 40px; */
+  width: 400px;
+  height: 1000px;
+  position: absolute;
+  top: -50px;
+  z-index: 999;
+  Display: flex;
+  justify-content: center;
+  align-items: center;
+/*   box-shadow: 30px 50px 100px #85888C; */
+}
+.content {
+  width: 74%;
+  height: 91%;
+  margin-right: 200px;
+}
+nav {
+  height: 65px;
+}
+
+
+#menuToggle {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 25px;
+  left: 25px;
+  width: 30px;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
+  border-radius: 20px;
+/*   background-color: #1E1E23;  */
+}
+
+#menuToggle input
+{
+
+  display: flex;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;
+  
+}
+
+#menuToggle span
+{
+  display: flex;
+  width: 29px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background:#5F489D ;
+  border-radius: 3px;
+  z-index: 1;
+  transform-origin: 5px 0px;
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-3px, -1px);
+  background: white;
+}
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+#menu
+{
+  position: absolute;
+  width: 250px;
+  height: 800px;
+  margin: -50px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  background-color: #5F489D;
+  -webkit-font-smoothing: antialiased;
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 10px 0;
+  transition-delay: 2s;
+}
+
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
+.tudo{
+    padding-top: 40px;
+}
+.Sub-produtos{
+    display: none;
+}
+.prod-burguer{
+    display: block;
+}
+#subMenuProdutos {
+  display: none;
+}
+
+.menuPrincipal li:hover > #subMenuProdutos {
+  display: block;
+}
+.navigation{
+    height: 100%;
+}
+.produtos-li{
+    color: #c1bfbf;
+}
+.logo-1{
+    z-index: 999;
+}
+.btn-contato-2, .btn-carrinho-2{
+    z-index: 999;
+}
+    .container-burguer{
+    display: flex;
+}
+a {
+  text-decoration: none;
+  color: white;
+  opacity:1;
+  font-family:'Font';
+  font-size: 1.5em;
+  font-weight: 400;
+  transition: 200ms;
+}
+a:hover {
+  opacity:0.5;
+}
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.container{
+display:none
+}
     i {
         display: flex;
         cursor: pointer;
@@ -956,18 +1121,47 @@ input::placeholder {
         </video>
     </div>
 
-    <button class="botao-bars" onclick="OpenMenu()">
-            <i class="fa-solid fa-bars" id="bars"></i>
-        </button>
-        <a class="logo-michael-1" href="index.html">
-            <img class="logo-1" src="img/m.png" alt="logo">
-        </a>
-
-        <div class="icones">
-            <a class="btn-carrinho-2" href="#"><img class="carrinho" src="img/Carinho.png" alt=""><button></button></a>
-<a class='btn-contato-2' href='cadastro.html'><img class='boneco' src='svg/boneco.svg'
-                    alt=''><button></button></a>                     
-        </div>
+    <div class="tudo">
+        <div class="container-burguer">
+            <div class="phone">
+              <div class="content">
+                
+                <nav role="navigation">
+                  <div id="menuToggle">
+                    <input type="checkbox" />
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <ul id="menu" class="menuPrincipal">
+                        <li><a href="#">Produtos <i class="fa-solid fa-angle-down" style="color: #ffffff; width: 10px;margin-right: 38px;"></i></a>
+                          <ul id="subMenuProdutos">
+                            <li><a href="guitarra.html" class="produtos-li">Guitarra</a></li>
+                            <li><a href="baixo.html" class="produtos-li">Baixo</a></li>
+                            <li><a href="ukulele.html" class="produtos-li">Ukulele</a></li>
+                            <li><a href="bateria.html" class="produtos-li">Bateria</a></li>
+                            <li><a href="power.html" class="produtos-li">Power Gate</a></li>
+                          </ul>
+                        </li>
+                        <li><a href="infantis.html">Infantis</a></li>
+                        <li><a href="artistas.html">Artistas</a></li>
+                        <li><a href="index.html" class="sobre-michael">Sobre a Michael</a></li>
+                      </ul>
+                 </div>
+                </nav>
+              </div>
+             </div>
+          </div>
+    
+            <a class="logo-michael-1" href="index.html">
+                <img class="logo-1" src="img/m.png" alt="logo">
+            </a>
+    
+            <div class="icones">
+                <a class="btn-carrinho-2" href="#"><img class="carrinho" src="img/Carinho.png" alt=""><button></button></a>
+    <a class='btn-contato-2' href='cadastro.html'><img class='boneco' src='svg/boneco.svg'
+                        alt=''><button></button></a>             
+            </div>
+     </div>  
     
     <!-- Menu -->
     <div class="container" id="container">
