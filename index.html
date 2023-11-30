@@ -187,10 +187,10 @@
 }
 
 .imagem-centro {
-    width: 300px;
+    width: 200px;
     margin-left: 160px;
     margin-right: 30px;
-    margin-top: 10px;
+    margin-top: 30px;
 }
 
 .texto-centro {
@@ -284,6 +284,7 @@
     background-image: url(img/rodape.png);
     background-size: cover;
     background-position: top;
+    margin-top: -50px;
 }
 
 .imagem-footer {
@@ -687,7 +688,6 @@ input::placeholder {
     width: 50px;
     height: 50px;
 }
-
 /*? Footer bottom */
 .footer-bottom {
     margin-top: 48px;
@@ -1141,6 +1141,9 @@ nav {
 body{
     overflow: scroll;
 }
+.footer{
+    margin-top: 50px;
+}
 }
     </style>
     
@@ -1262,7 +1265,7 @@ body{
     </div>
 
     <!-- Sobre Nós -->
-    <div class="meio">
+    <div class="meio ">
         <div class="meio1">
             <div class="texto-meio">
                 <h1 class="texto-centro">Sobre a Michael Instrumentos</h1>
@@ -1299,7 +1302,7 @@ body{
                 </p>
             </div>
             <div class="imagem-meio2">
-                <img class="imagem-centro2" src="img/Guitarra1.png" alt="" class="imagemcentro">
+                <img class="imagem-centro2" src="img/lipe.png" alt="" class="imagemcentro">
             </div>
         </div>
     </div>
@@ -1511,27 +1514,27 @@ startAutoAdvance();
 
 
 
-// document.getElementById("year").innerHTML = new Date().getFullYear();   
+document.getElementById("year").innerHTML = new Date().getFullYear();   
 
-// const Observa = new IntersectionObserver((arrastar) => {
-//     arrastar.forEach((rasta) =>{
-//         if (rasta.isIntersecting) {
-//         rasta.target.classList.add('depoisScroll')
-//         } else{
-//             rasta.target.classList.remove('depoisScroll')
-//         }
-//     })
-// })
+const Observa = new IntersectionObserver((arrastar) => {
+    arrastar.forEach((rasta) =>{
+        if (rasta.isIntersecting) {
+        rasta.target.classList.add('depoisScroll')
+        } else{
+            rasta.target.classList.remove('depoisScroll')
+        }
+    })
+})
 
-// const descerScroll = document.querySelectorAll(".descerScroll");
-// const leftScroll = document.querySelectorAll(".leftScroll");
-// const rightScroll = document.querySelectorAll(".rightScroll");
-// const subirScroll = document.querySelectorAll(".subirScroll");
+const descerScroll = document.querySelectorAll(".descerScroll");
+const leftScroll = document.querySelectorAll(".leftScroll");
+const rightScroll = document.querySelectorAll(".rightScroll");
+const subirScroll = document.querySelectorAll(".subirScroll");
 
-// descerScroll.forEach((descerScroll) => Observa.observe (descerScroll))
-// leftScroll.forEach((leftScroll) => Observa.observe(leftScroll));
-// rightScroll.forEach((rightScroll) => Observa.observe(rightScroll));
-// subirScroll.forEach((subirScroll) => Observa.observe(subirScroll));
+descerScroll.forEach((descerScroll) => Observa.observe (descerScroll))
+leftScroll.forEach((leftScroll) => Observa.observe(leftScroll));
+rightScroll.forEach((rightScroll) => Observa.observe(rightScroll));
+subirScroll.forEach((subirScroll) => Observa.observe(subirScroll));
 
 const produtos = document.querySelector(".Sub-produtos")
 const prodcentro = document.getElementById("Produtos-centro")
