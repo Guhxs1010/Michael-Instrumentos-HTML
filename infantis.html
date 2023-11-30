@@ -223,18 +223,21 @@
 
         .meio{
             background-image: url(img/fundo-menino.png);
+            background-attachment: fixed;
                 background-size: cover;
                 background-position: top; 
         }
  
          .ensino-camp{
-            background-image: url(img/rodape.png);
+                background-image: url(img/rodape.png);
+                background-attachment: fixed;
                 background-size: cover;
                 background-position: top; 
                 margin-top:-40px;
         }
         .ensino-basico-crianca{
             background-image: url(img/fundo.png);
+
                 background-size: cover;
                 background-position: top; 
         }
@@ -445,6 +448,7 @@
 
 .footer {
     background-image: url(img/fundo-menino.png);
+    background-attachment: fixed;
     background-size: cover;
     background-position: top;
 }
@@ -626,6 +630,7 @@ form {
         }
         .fundo-caixas{
           background-image: url(img/rodape.png);
+          background-attachment: fixed;
           background-size: cover;
           background-position: top; 
         }
@@ -639,6 +644,7 @@ form {
         .mover-caixas{
           display: flex;
           justify-content: center;
+          margin-top: -10px;
         }
         .sub-caixas{
           display: flex;
@@ -984,6 +990,7 @@ input::placeholder {
     align-items: center;
     flex-direction: column;
     background-image: url(img/fundo.png);
+    background-attachment: fixed;
     background-size: cover;
     background-position: top;
     color: var(--text-color);
@@ -1677,59 +1684,6 @@ display:none
             </div>
         </div>
 
-      
-       <div class="ensino-camp">
-            <div class="titulo-ensino-en">
-                <h1 class="titulo-ensino-2">Campanha Harmonia Infantil</h1>
-            </div>
-            <div class="ensino1">
-             <div class="texto-ensino-basico">
-                
-                 <h1 class="texto-ensino">Harmonia Infantil: Dê Vida à Música nas Mãos das Crianças</h1>
-                 <p class="conteudo-ensino">Na Michael Instrumentos, acreditamos que a música tem o poder de transformar vidas e enriquecer o espírito. É por isso que estamos entusiasmados em lançar a campanha "Harmonia Infantil" - um convite a todos que compartilham do amor pela música e da dedicação ao bem-estar das crianças.
-                    Cada doação é uma nota de esperança, um acorde de generosidade. Através dessa campanha, você não apenas fornece instrumentos musicais, mas também promove o crescimento pessoal, o desenvolvimento da criatividade e a construção de habilidades para as crianças.</p>
-                 </p>
-             </div>
-     
-             <div class="video-campanha">
-                 <video class="campanha-video" src="videos/video-campanha.mp4" alt="" autoplay muted loop >  
-         </div>
-         </div>
-         <div class="ensino2">
-             <div class="texto-ensino2-basico">
-                         <h1 class="texto-ensino2">Explorando o Mundo da Música com Michael Instrumentos</h1>
-                         <p class="conteudo-ensino2">
-                         A música é uma linguagem universal que transcende barreiras e conecta pessoas de todas as idades. No entanto, quando se trata de crianças, a música desempenha um papel ainda mais especial. Elas são naturalmente curiosas, criativas e receptivas a sons e ritmos. É por isso que dar a elas a oportunidade de explorar o mundo da música é um presente inestimável.
-                         </p>
-                     </div>
-                     <div class="video-campanha">
-                 <video class="campanha-video" src="videos/Gui.mp4" alt="" autoplay muted loop >  
-         </div>
-        
-        </div>
-         
-         <div class="caixa-contribuir">
-            <h1>Contribua com a Campanha "Harmonia Infantil"</h1>
-            <p class="p">Seja parte deste movimento para promover a música entre crianças e apoiar a Campanha "Harmonia Infantil". Cada doação é uma nota de esperança, um acorde de generosidade.</p>
-            <p class="p">Escolha o valor que deseja contribuir:</p>
-
-            <div class="form">
-                <form action="" method="POST">
-                <label for="valor_contribuicao">Valor da Contribuição:</label>
-                <input type="number" name="valor_contribuicao" id="valor_contribuicao" min="1" required>
-
-            </form>
-            </div>
-            <div class="botao-pay">
-                           <button class="Btn">
-  Pay
-  <svg class="svgIcon" viewBox="0 0 576 512"><path d="M512 80c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H512zm16 144V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V224H528zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm56 304c-13.3 0-24 10.7-24 24s10.7 24 24 24h48c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm128 0c-13.3 0-24 10.7-24 24s10.7 24 24 24H360c13.3 0 24-10.7 24-24s-10.7-24-24-24H248z"></path></svg>
-</button>
-</div>
-        </div>
-        
-         </div>
-</div>
              <!-- Caixa 1  -->
     <div class="fundo-caixas">
         <div class="mover-caixas">
@@ -1887,6 +1841,30 @@ display:none
           </div>
       </div>
        </div>
+
+       <div class="ensino-camp">
+        <div class="titulo-ensino-en">
+            <h1 class="titulo-ensino-2">Campanha Harmonia Infantil</h1>
+        </div>
+        <div class="ensino1">
+         <div class="texto-ensino-basico">
+            
+             <h1 class="texto-ensino">Harmonia Infantil: Dê Vida à Música nas Mãos das Crianças</h1>
+             <p class="conteudo-ensino">Na Michael Instrumentos, acreditamos que a música tem o poder de transformar vidas e enriquecer o espírito. É por isso que estamos entusiasmados em lançar a campanha "Harmonia Infantil" - um convite a todos que compartilham do amor pela música e da dedicação ao bem-estar das crianças.
+                Cada doação é uma nota de esperança, um acorde de generosidade. Através dessa campanha, você não apenas fornece instrumentos musicais, mas também promove o crescimento pessoal, o desenvolvimento da criatividade e a construção de habilidades para as crianças.</p>
+             </p>
+         </div>
+ 
+         <div class="video-campanha">
+             <video class="campanha-video" src="videos/video-campanha.mp4" alt="" autoplay muted loop >  
+     </div>
+     </div>
+
+     <div class="meio-campanha">
+        
+     </div>
+    </div>
+    
 
     
 
