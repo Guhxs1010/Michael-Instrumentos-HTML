@@ -894,6 +894,9 @@ input::placeholder {
     .btn-carrinho-2{
     display: flex;
 }
+.container-caixas{
+        z-index: 999;
+    }
     .phone {
 /*   background-color: #36383F; */
   /* border-radius: 40px; */
@@ -1623,12 +1626,16 @@ window.addEventListener("load", function() {
 
 const checkbox = document.getElementById("checkbox")
 const body = document.querySelector('body')
+const caixa = document.querySelector('.container-caixas')
 checkbox.addEventListener("change",function(){
     if(checkbox.checked){
-    body.style.overflow = "hidden"
+    body.style.overflow = "hidden";
+    caixa.style.zIndex = "0";
 }else{
     body.style.overflow = "scroll"
+    caixa.style.zIndex = "999";
 }
+
 })
 
 const produtosLink = document.getElementById("produtos-link");

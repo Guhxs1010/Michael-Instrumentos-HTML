@@ -828,6 +828,9 @@ input::placeholder {
     .container{
         display: none;
     }
+    .container-caixas{
+        z-index: 999;
+    }
     i {
         display: flex;
         cursor: pointer;
@@ -1520,12 +1523,16 @@ display:none
 
 const checkbox = document.getElementById("checkbox")
 const body = document.querySelector('body')
+const caixa = document.querySelector('.container-caixas')
 checkbox.addEventListener("change",function(){
     if(checkbox.checked){
-    body.style.overflow = "hidden"
+    body.style.overflow = "hidden";
+    caixa.style.zIndex = "0";
 }else{
     body.style.overflow = "scroll"
+    caixa.style.zIndex = "999";
 }
+
 })
 
 const produtosLink = document.getElementById("produtos-link");

@@ -814,6 +814,7 @@ input::placeholder {
 }
 .menuAtivo{
    overflow: hidden;
+   z-index: 0;
 }
 .content {
   width: 74%;
@@ -1119,6 +1120,9 @@ display:none
     display: flex;
     margin-top: 10px;
 }
+.container-caixas{
+        z-index: 999;
+    }
     }
     </style>
 </head>
@@ -1505,12 +1509,16 @@ display:none
 
 const checkbox = document.getElementById("checkbox")
 const body = document.querySelector('body')
+const caixa = document.querySelector('.container-caixas')
 checkbox.addEventListener("change",function(){
     if(checkbox.checked){
-    body.style.overflow = "hidden"
+    body.style.overflow = "hidden";
+    caixa.style.zIndex = "0";
 }else{
     body.style.overflow = "scroll"
+    caixa.style.zIndex = "999";
 }
+
 })
 
 const produtosLink = document.getElementById("produtos-link");
