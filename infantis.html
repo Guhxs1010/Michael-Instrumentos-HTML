@@ -18,6 +18,10 @@
             font-family: 'Font';
             src: url(fonts/Roboto-Medium.ttf);
         }
+        @font-face {
+            font-family:'Titans' ;
+            src: url(fonts/ttg_by_westralinc-dbnnkt8.ttf);
+        }
 /* tela de carregamento */
 .loading-screen {
     /* position: fixed; */
@@ -1245,10 +1249,101 @@ input::placeholder {
         .container-burguer{
     display: none;
 }
+.btn-megafone-2{
+    display: none;
+}
+.carrossel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.carrossel-container {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+.video, .video-infantil {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+.bolinhas {
+    display: flex;
+    justify-content: center;
+    margin-top: 240px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bolinha {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #999;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.bolinha.ativa {
+    background-color: #5F489D;
+}
+.saiba-infantis {
+    position: absolute;
+    z-index: 999;
+    top: 450px;
+    left: 2580px;
+    opacity: 1;
+    border: 1px solid white;
+    background-color: #5F489D;
+    /* Fundo transparente */
+    color: #ffffff;
+    font-family: 'Font';
+    width: 100px;
+    height: 50px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: block;
+    line-height: 50px;
+    text-align: center;
+}
+
+.saiba-infantis:hover {
+    color: #5F489D;
+    background-color: #ffffff;
+    transition: 1s;
+}
+.video {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
 @media (max-width:780px) {
     .container{
         display: none;
     }
+    .video{
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+.video-infantil{
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    object-position:-540px ;
+}
+    .carrossel {
+        display: flex;
+        margin-top: 20px;
+        width: 100%;
+        overflow: hidden;
+    }
+    
     .phone {
 /*   background-color: #36383F; */
   /* border-radius: 40px; */
@@ -1586,6 +1681,10 @@ display:none
 .social-wrapper{
     display:none;
 }
+.video-infantil{
+    object-fit: cover;
+    object-position:-80px ;
+}
 .footer-columns section, .footer-columns .footer-logo{
     margin-top:-30px;
 }
@@ -1608,6 +1707,10 @@ display:none
 }
 .btn-carrinho-2{
     display:flex;
+    margin-top: -10px;
+}
+.btn-megafone-2{
+    display: flex;
     margin-top: -10px;
 }
     }
@@ -1656,7 +1759,8 @@ display:none
             </a>
     
             <div class="icones">
-                <a class="btn-carrinho-2" href="#"><img class="carrinho" src="img/Carinho.png" alt=""><button></button></a>
+                <a class="btn-megafone-2" href="#"><img class="carrinho" src="svg/megafone.svg" alt=""><button></button></a>
+<a class="btn-carrinho-2" href="#"><img class="carrinho" src="svg/carrinho.svg" alt=""><button></button></a>
     <a class='btn-contato-2' href='cadastro.html'><img class='boneco' src='svg/boneco.svg'
                         alt=''><button></button></a>             
             </div>
@@ -1680,7 +1784,8 @@ display:none
             <li class="li"><a id="bao" class="linha" href="infantis.html">Infantis</a></li>
             <li class="li"><a id="bao" class="linha" href="artistas.html">Artistas</a></li>
             <li class="li"><a id="bao" class="sobre" href="index.html">Sobre a Michael</a></li>
-            <a class="btn-carrinho" href="#"><img class="carrinho" src="img/Carinho.png" alt=""><button></button></a>
+            <a class="btn-megafone" href="#"><img class="carrinho" src="svg/megafone.svg" alt=""><button></button></a> 
+            <a class="btn-carrinho" href="#"><img class="carrinho" src="svg/carrinho.svg" alt=""><button></button></a>
 <a class='btn-contato' href='cadastro.html'><img class='boneco' src='svg/boneco.svg'
                     alt=''><button></button></a>     
                                     <div id="buscar">
@@ -1691,11 +1796,25 @@ display:none
         </ul>
     </div>
 
-        <div class="video-meio">
-            <div class="video">
-                <video class="infantil-video" src="videos/infantil-video.mp4" autoplay loop muted></video>
-            </div>
+
+    <div class="carrossel">
+        <div class="carrossel-container">
+            <video class="video" autoplay muted loop>
+                <source src="videos/titans.mp4" type="video/mp4">
+            </video>
+          
+            <a href="infantis.html"><button class="saiba-infantis">Saiba Mais</button></a>
+            <video class="video-infantil" autoplay muted loop>
+                <source src="videos/textO.mp4" type="video/mp4">
+            </video>
+            <!-- Adicione mais vídeos aqui -->
         </div>
+        <!-- Bolinhas Carrossel -->
+        <div class="bolinhas">
+            <span class="bolinha ativa" data-index="0"></span>
+            <span class="bolinha" data-index="1"></span>
+        </div>
+    </div>
 
              <!-- Caixa 1  -->
     <div class="fundo-caixas">
@@ -1855,7 +1974,7 @@ display:none
       </div>
        </div>
 
-       <div class="ensino-camp">
+       <!-- <div class="ensino-camp">
         <div class="titulo-ensino-en">
             <h1 class="titulo-ensino-2">Campanha Harmonia Infantil</h1>
         </div>
@@ -1876,7 +1995,7 @@ display:none
      <div class="meio-campanha">
         
      </div>
-    </div>
+    </div> -->
     
 
     
@@ -2030,6 +2149,47 @@ checkbox.addEventListener("change",function(){
     body.style.overflow = "scroll"
 }
 })
+
+const carrosselContainer = document.querySelector('.carrossel-container');
+const bolinhas = document.querySelectorAll('.bolinha');
+let currentIndex = 0;
+let timer;
+
+function updateCarousel() {
+    const imageWidth = carrosselContainer.children[0].offsetWidth;
+    carrosselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+    updateBolinhas();
+}
+
+function updateBolinhas() {
+    bolinhas.forEach((bolinha, index) => {
+        if (index === currentIndex) {
+            bolinha.classList.add('ativa');
+        } else {
+            bolinha.classList.remove('ativa');
+        }
+    });
+}
+
+// Função para clicar nas bolinhas
+bolinhas.forEach((bolinha, index) => {
+    bolinha.addEventListener('click', () => {
+        currentIndex = index;
+        updateCarousel();
+    });
+});
+
+function nextImage() {
+    currentIndex = (currentIndex + 1) % bolinhas.length;
+    updateCarousel();
+}
+
+function startAutoAdvance() {
+    timer = setInterval(nextImage, 7000);
+}
+
+// Inicie o temporizador para avançar automaticamente
+startAutoAdvance();
 
 
 const produtosLink = document.getElementById("produtos-link");
