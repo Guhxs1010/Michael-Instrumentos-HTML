@@ -764,6 +764,154 @@ input::placeholder {
     margin-right: 100px;
     color: #000;
 }
+input[type="number"] {
+    display: none;
+  }
+
+
+        .toast__container {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.toast__cell{
+  display:inline-block;
+}
+
+.add-margin{
+  margin-top:20px;
+}
+
+.toast__svg{
+  fill:#fff;
+}
+
+.toast {
+  text-align:left;
+    padding: 21px 0;
+    background-color:#fff;
+    border-radius:4px;
+    max-width: 500px;
+    top: 0px;
+    position:relative;
+    box-shadow: 1px 7px 14px -5px rgba(0,0,0,0.2);
+}
+
+
+.toast:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+  border-top-left-radius:4px;
+  border-bottom-left-radius: 4px;
+
+}
+
+.toast__icon{
+  position:absolute;
+bottom:50%;
+  right:22px;
+  transform:translateY(-50%);
+  width:14px;
+  height:14px;
+  padding: 7px;
+  border-radius:50%;
+  display:inline-block;
+}
+.toast__type {
+  color: #3e3e3e;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.toast__message {
+    font-size: 14px;
+    margin-top: 0;
+  margin-bottom: 0;
+    color: #878787;
+}
+
+.toast__content{
+  padding-left:70px;
+  padding-right:60px;
+}
+
+.toast__close {
+    position: absolute;
+    right: 22px;
+    top: 50%;
+    width: 14px;
+    cursor:pointer;
+    height: 14px;
+  fill:#878787;
+    transform: translateY(-50%);
+}
+
+.toast--green .toast__icon{
+  background-color:#2BDE3F;
+}
+        .toast__container {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.toast__cell{
+  display:inline-block;
+}
+
+.add-margin{
+  margin-top:20px;
+}
+
+.toast__svg{
+  fill:#fff;
+}
+
+.toast {
+  text-align:left;
+    padding: 21px 0;
+    background-color:#fff;
+    border-radius:4px;
+    max-width: 500px;
+    top: 0px;
+    position:relative;
+    box-shadow: 1px 7px 14px -5px rgba(0,0,0,0.2);
+}
+
+
+.toast:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+  border-top-left-radius:4px;
+  border-bottom-left-radius: 4px;
+
+}
+
+.toast--green:before{
+  background-color:#2BDE3F;
+}
+.toast toast--green{
+    display: block;
+    top: -100px;
+}
+.toast__container{
+    display: flex;
+    right: 10px;
+    z-index: 999;
+    position: fixed;
+    bottom: 10px;
+}
+input[type="number"] {
+    display: none;
+  }
 
 .social-links img {
     width: 24px;
@@ -1208,7 +1356,7 @@ display:none
     
             <div class="icones">
                 <a class="btn-megafone-2" href="#"><img class="carrinho" src="svg/megafone.svg" alt=""><button></button></a>
-<a class="btn-carrinho-2" href="#"><img class="carrinho" src="svg/carrinho.svg" alt=""><button></button></a>
+                <a class="btn-carrinho-2" href="carrinho.html"><img class="carrinho" src="svg/carrinho.svg" alt=""><button></button></a>
     <a class='btn-contato-2' href='cadastro.html'><img class='boneco' src='svg/boneco.svg'
                         alt=''><button></button></a>             
             </div>
@@ -1240,7 +1388,7 @@ display:none
             <li class="li"><a id="bao" class="linha" href="artistas.html">Artistas</a></li>
             <li class="li"><a id="bao" class="sobre" href="index.html">Sobre a Michael</a></li>
             <a class="btn-megafone" href="#"><img class="carrinho" src="svg/megafone.svg" alt=""><button></button></a> 
-            <a class="btn-carrinho" href="#"><img class="carrinho" src="svg/carrinho.svg" alt=""><button></button></a>
+            <a class="btn-carrinho" href="carrinho.html"><img class="carrinho" src="svg/carrinho.svg" alt=""><button></button></a>
 <a class='btn-contato' href='cadastro.html'><img class='boneco' src='svg/boneco.svg'
                     alt=''><button></button></a>     
                                     <div id="buscar">
@@ -1255,200 +1403,177 @@ display:none
     </div>
 
     
-        <!-- Caixa 1  -->
-        <div class="fundo-caixas">
-            <div class="mover-caixas">
-              <div class="container-caixas">
-                <div class="sub-caixas">
+<!-- Caixa 1  -->
+<div class="fundo-caixas">
+    <div class="mover-caixas">
+        <div class="container-caixas">
+            <div class="sub-caixas">
                 <div class="caixa-1">
-                  <div class="wrapper">
-                      <div class="card">
-                        <div class="front">
-                          <h1>BAIXO MICHAEL</h1>
-                          <p>Michael</p>
-                          <p class="price">R$ 500.00</p>
-                        </div>
-                        <div class="right">
-                          <h2>BAIXO</h2>
-                          <ul>
-                            <li class="lii">BM607N</li>
-                            <li class="lii">SK (SUNBURST BLACK)</li>
-                          </ul>
-                          <button class="comprar">Comprar</button>
-                        </div>
-                      </div>
-                      <div class="img-wrapper">
-                           <img src='img/baixo-1.png' alt=''>    
-                      </div>
-                    </div> 
-                  </div>
-                
-                  <!-- Caixa 2 -->
-                  <div class="caixa-2">
                     <div class="wrapper">
-                      <div class="card">
-                        <div class="front">
-                          <h1>BAIXO MICHAEL</h1>
-                          <p>Michael</p>
-                          <p class="price">R$ 400.00</p>
+                        <div class="card">
+                            <div class="front">
+                                <h1>BAIXO MICHAEL</h1>
+                                <p>Michael</p>
+                                <p class="price">R$ 500.00</p>
+                            </div>
+                            <div class="right">
+                                <h2>BAIXO</h2>
+                                <ul>
+                                    <li class="lii">BM607N</li>
+                                    <li class="lii">SK (SUNBURST BLACK)</li>
+                                </ul>
+                                <input type="number" value="1" min="1" max="10" id="qtd7">
+                                <button class="comprar" id="adicionar1" id="produto1"
+                                    onclick="AddCarrinho('BAIXO MICHAEL', document.getElementById('qtd7').value, '500.00', 7)">Comprar</button>
+                            </div>
                         </div>
-                        <div class="right">
-                          <h2>BAIXO</h2>
-                          <ul>
-                            <li class="lii">BM675N</li>
-                            <li class="lii">BK (BLACK)</li>
-                          </ul>
-                          <button class="comprar">Comprar</button>
+                        <div class="img-wrapper">
+                            <img src='img/baixo-1.png' alt=''>
                         </div>
-                      </div>
-                      <div class="img-wrapper">
-                           <img src='img/baixo-2.png' alt=''>    
-                      </div>
-                    </div> 
-                  </div>
-                 
-                  <!-- Caixa 3 -->
-                  <div class="caixa-3">
-                    <div class="wrapper">
-                      <div class="card">
-                        <div class="front">
-                          <h1>BAIXO MICHAEL</h1>
-                          <p>Michael</p>
-                          <p class="price">R$ 500.00</p>
-                        </div>
-                        <div class="right">
-                          <h2>BAIXO</h2>
-                          <ul>
-                            <li class="lii">BM705N</li>
-                            <li class="lii">VS (VINTAGE SUNBURST)</li>
-                          </ul>
-                          <button class="comprar">Comprar</button>
-                        </div>
-                      </div>
-                      <div class="img-wrapper">
-                           <img src='img/baixo-3.png' alt=''>    
-                      </div>
-                    </div> 
-                  </div>
-                  </div>
-              </div>
-          </div>
-          
-          
-            <div class="mover-caixas">
-              <div class="container-caixas">
-                <div class="sub-caixas">
-                <div class="caixa-4">
-                  <div class="wrapper">
-                      <div class="card">
-                        <div class="front">
-                          <h1>BAIXO MICHAEL</h1>
-                          <p>Michael</p>
-                          <p class="price">R$ 400.00</p>
-                        </div>
-                        <div class="right">
-                          <h2>BAIXO</h2>
-                          <ul>
-                            <li class="lii">BMJ500</li>
-                            <li class="lii">05 CORDAS</li>
-                            <li class="lii">CR (CREAM)</li>
-                          </ul>
-                          <button class="comprar">Comprar</button>
-                        </div>
-                      </div>
-                      <div class="img-wrapper">
-                           <img src='img/BAIXO-4.png' alt=''>    
-                      </div>
-                    </div> 
-                  </div>
-                
-                  <!-- Caixa 2 -->
-                  <div class="caixa-5">
-                    <div class="wrapper">
-                      <div class="card">
-                        <div class="front">
-                          <h1>BAIXO MICHAEL</h1>
-                          <p>Michael</p>
-                          <p class="price">R$ 500.00</p>
-                        </div>
-                        <div class="right">
-                          <h2>BAIXO</h2>
-                          <ul>
-                            <li class="lii">BM516N</li>
-                            <li class="lii">06 CORDAS</li>
-                            <li class="lii">NA (NATURAL)</li>
-                          </ul>
-                          <button class="comprar">Comprar</button>
-                        </div>
-                      </div>
-                      <div class="img-wrapper">
-                           <img src='img/BAIXO-5.png' alt=''>    
-                      </div>
-                    </div> 
-                  </div>
-                 
-                  <!-- Caixa 3 -->
-                  <div class="caixa-6">
-                    <div class="wrapper">
-                      <div class="card">
-                        <div class="front">
-                          <h1>BAIXO MICHAEL</h1>
-                          <p>Michael</p>
-                          <p class="price">R$ 350.00</p>
-                        </div>
-                        <div class="right">
-                          <h2>BAIXO</h2>
-                          <ul>
-                            <li class="lii">BM608N</li>
-                            <li class="lii">BK (BLACK)</li>
-                          </ul>
-                          <button class="comprar">Comprar</button>
-                        </div>
-                      </div>
-                      <div class="img-wrapper">
-                           <img src='img/BAIXO-6.png' alt=''>    
-                      </div>
-                    </div> 
-                  </div>
-                  </div>
-              </div>
-          </div>
-           </div>
-          
-           <footer class="footer">
-            <div class="footer-wrapper">
-                <div class="social-wrapper">
-                    <div class='social-links'>
-                        <ul>
-                            <li>
-                                <a href="#" title="Instagram" class="redes-footer">
-                                    <i class="fa-brands fa-instagram" style="color: #5F489D;"></i>                      
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" title="Linkedin" class="redes-footer">
-                                    <i class="fa-brands fa-linkedin-in" style="color: #5F489D;"></i>
-                                    
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" title="Twitter" class="redes-footer">
-                                    <i class="fa-brands fa-twitter" style="color: #5F489D;"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" title="Youtube" class="redes-footer">
-                                    <i class="fa-brands fa-youtube" style="color: #5F489D;"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" title="GitHub" class="redes-footer">
-                                    <i class="fa-brands fa-github" style="color: #5F489D;"></i>
-                                </a>
-                            </li>
-                        </ul>
                     </div>
                 </div>
+
+                <!-- Caixa 2 -->
+                <div class="caixa-2">
+                    <div class="wrapper">
+                        <div class="card">
+                            <div class="front">
+                                <h1>BAIXO MICHAEL</h1>
+                                <p>Michael</p>
+                                <p class="price">R$ 400.00</p>
+                            </div>
+                            <div class="right">
+                                <h2>BAIXO</h2>
+                                <ul>
+                                    <li class="lii">BM675N</li>
+                                    <li class="lii">BK (BLACK)</li>
+                                </ul>
+                                <input type="number" value="1" min="1" max="10" id="qtd8">
+                                <button class="comprar" id="adicionar1" id="produto1"
+                                    onclick="AddCarrinho('BAIXO MICHAEL', document.getElementById('qtd8').value, '400.00', 8)">Comprar</button>
+                            </div>
+                        </div>
+                        <div class="img-wrapper">
+                            <img src='img/baixo-2.png' alt=''>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Caixa 3 -->
+                <div class="caixa-3">
+                    <div class="wrapper">
+                        <div class="card">
+                            <div class="front">
+                                <h1>BAIXO MICHAEL</h1>
+                                <p>Michael</p>
+                                <p class="price">R$ 500.00</p>
+                            </div>
+                            <div class="right">
+                                <h2>BAIXO</h2>
+                                <ul>
+                                    <li class="lii">BM705N</li>
+                                    <li class="lii">VS (VINTAGE SUNBURST)</li>
+                                </ul>
+                                <input type="number" value="1" min="1" max="10" id="qtd9">
+                                <button class="comprar" id="adicionar1" id="produto1"
+                                    onclick="AddCarrinho('BAIXO MICHAEL', document.getElementById('qtd9').value, '500.00', 9)">Comprar</button>
+                            </div>
+                        </div>
+                        <div class="img-wrapper">
+                            <img src='img/baixo-3.png' alt=''>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="mover-caixas">
+        <div class="container-caixas">
+            <div class="sub-caixas">
+                <div class="caixa-4">
+                    <div class="wrapper">
+                        <div class="card">
+                            <div class="front">
+                                <h1>BAIXO MICHAEL</h1>
+                                <p>Michael</p>
+                                <p class="price">R$ 400.00</p>
+                            </div>
+                            <div class="right">
+                                <h2>BAIXO</h2>
+                                <ul>
+                                    <li class="lii">BMJ500</li>
+                                    <li class="lii">05 CORDAS</li>
+                                    <li class="lii">CR (CREAM)</li>
+                                </ul>
+                                <input type="number" value="1" min="1" max="10" id="qtd10">
+                                <button class="comprar" id="adicionar1" id="produto1"
+                                    onclick="AddCarrinho('BAIXO MICHAEL', document.getElementById('qtd10').value, '400.00', 10)">Comprar</button>
+                            </div>
+                        </div>
+                        <div class="img-wrapper">
+                            <img src='img/BAIXO-4.png' alt=''>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Caixa 2 -->
+                <div class="caixa-5">
+                    <div class="wrapper">
+                        <div class="card">
+                            <div class="front">
+                                <h1>BAIXO MICHAEL</h1>
+                                <p>Michael</p>
+                                <p class="price">R$ 500.00</p>
+                            </div>
+                            <div class="right">
+                                <h2>BAIXO</h2>
+                                <ul>
+                                    <li class="lii">BM516N</li>
+                                    <li class="lii">06 CORDAS</li>
+                                    <li class="lii">NA (NATURAL)</li>
+                                </ul>
+                                <input type="number" value="1" min="1" max="10" id="qtd11">
+                                <button class="comprar" id="adicionar1" id="produto1"
+                                    onclick="AddCarrinho('BAIXO MICHAEL', document.getElementById('qtd11').value, '500.00', 11)">Comprar</button>
+                            </div>
+                        </div>
+                        <div class="img-wrapper">
+                            <img src='img/BAIXO-5.png' alt=''>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Caixa 3 -->
+                <div class="caixa-6">
+                    <div class="wrapper">
+                        <div class="card">
+                            <div class="front">
+                                <h1>BAIXO MICHAEL</h1>
+                                <p>Michael</p>
+                                <p class="price">R$ 350.00</p>
+                            </div>
+                            <div class="right">
+                                <h2>BAIXO</h2>
+                                <ul>
+                                    <li class="lii">BM608N</li>
+                                    <li class="lii">BK (BLACK)</li>
+                                </ul>
+                                <input type="number" value="1" min="1" max="10" id="qtd12">
+                                <button class="comprar" id="adicionar1" id="produto1"
+                                    onclick="AddCarrinho('BAIXO MICHAEL', document.getElementById('qtd12').value, '350.00', 7)">Comprar</button>
+                            </div>
+                        </div>
+                        <div class="img-wrapper">
+                            <img src='img/BAIXO-6.png' alt=''>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
               
                 <div class="footer-columns">
                     <div class="footer-links">
@@ -1618,6 +1743,62 @@ document.getElementById("buscar-input").addEventListener("input", function () {
     }
 });
 document.getElementById("year").innerHTML = new Date().getFullYear();  
+function AddCarrinho(produto, qtd, valor, posicao) {
+  localStorage.setItem("produto" + posicao, produto);
+  localStorage.setItem("qtd" + posicao, qtd);
+  valor = valor * qtd;
+  localStorage.setItem("valor" + posicao, valor);
+
+  // Criar elemento div para a notificação
+  var toastContainer = document.createElement("div");
+  toastContainer.className = "toast__container";
+
+  var toastCell = document.createElement("div");
+  toastCell.className = "toast__cell";
+
+  var toast = document.createElement("div");
+  toast.className = "toast toast--green";
+
+  // Adicionar o conteúdo da notificação
+  toast.innerHTML = `
+  <div class="toast-total">
+    <div class="toast__icon">
+      <svg version="1.1" class="toast__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+        <g>
+          <g>
+            <path d="M504.502,75.496c-9.997-9.998-26.205-9.998-36.204,0L161.594,382.203L43.702,264.311c-9.997-9.998-26.205-9.997-36.204,0
+              c-9.998,9.997-9.998,26.205,0,36.203l135.994,135.992c9.994,9.997,26.214,9.99,36.204,0L504.502,111.7
+              C514.5,101.703,514.499,85.494,504.502,75.496z"></path>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div class="toast__content">
+      <p class="toast__type">Success</p>
+      <p class="toast__message">${produto} adicionado ao carrinho!</p>
+    </div>
+    <div class="toast__close">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.642 15.642" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 15.642 15.642">
+        <path fill-rule="evenodd" d="M8.882,7.821l6.541-6.541c0.293-0.293,0.293-0.768,0-1.061
+          c-0.293-0.293-0.768-0.293-1.061,0L7.821,6.76L1.28,0.22c-0.293-0.293-0.768-0.293-1.061,0c-0.293,0.293-0.293,0.768,0,1.061
+          l6.541,6.541L0.22,14.362c-0.293,0.293-0.293,0.768,0,1.061c0.147,0.146,0.338,0.22,0.53,0.22s0.384-0.073,0.53-0.22
+          l6.541-6.541l6.541,6.541c0.147,0.146,0.338,0.22,0.53,0.22c0.192,0,0.384-0.073,0.53-0.22
+          c0.293-0.293,0.293-0.768,0-1.061L8.882,7.821z"></path>
+      </svg>
+    </div>
+    </div>
+    
+  `;
+
+  toastContainer.appendChild(toastCell);
+  toastCell.appendChild(toast);
+  document.body.appendChild(toastContainer);
+
+  // Remover a notificação após alguns segundos (opcional)
+  setTimeout(function () {
+    document.body.removeChild(toastContainer);
+  }, 5000);
+}
     </script>
 </body>
 </html>
