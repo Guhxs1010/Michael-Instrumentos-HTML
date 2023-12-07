@@ -971,7 +971,7 @@ display:none
     margin-left:0;
 }
 .artistas-video{
-    margin-top:15px;
+    margin-top:-15px;
 }
 .btn-carrinho-2{
     margin-top:-5px;
@@ -1002,6 +1002,23 @@ display:none
     display: flex;
 }
 .btn-megafone-2{
+    display: flex;
+}
+
+#buscar-input{
+    z-index: 999;
+    transition: 2s ease;
+}
+#buscar-2 {
+            display: flex;
+            align-items: center;
+            margin: 20px;
+            border: 3px solid #5F489D;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top:20px;
+        }
+    #buscar-2{
     display: flex;
 }
     }
@@ -1056,6 +1073,13 @@ display:none
                         alt=''><button></button></a>             
             </div>
      </div>  
+
+     
+ <div id="buscar-2">   
+    <a class="btn-lupa" href="#"><img class="lupa" src="svg/lupa.svg" alt=""><button></button></a>
+        <input type="text" id="buscar-input" placeholder="Pesquisar Produto" oninput="buscarProduto()">
+        
+    </div>
     
     <!-- Menu -->
     <div class="container" id="container">
@@ -1087,6 +1111,7 @@ display:none
         </ul>
     </div>
 
+    <div class="tudo-meio">
     <div class="video-meio">
         <div class="video">
             <video class="artistas-video" src="videos/Artistas.mp4" autoplay loop muted></video>
@@ -1106,6 +1131,7 @@ display:none
         
     </div>
     </div>
+</div>
 
     <div class="fundo-centro">
        <div class="artistas-centro">
@@ -1321,13 +1347,37 @@ window.addEventListener("load", function() {
 
 const checkbox = document.getElementById("checkbox")
 const body = document.querySelector('body')
+const caixa2 = document.querySelector('#buscar-input')
 checkbox.addEventListener("change",function(){
     if(checkbox.checked){
-    body.style.overflow = "hidden"
+    body.style.overflow = "hidden";
+    caixa2.style.zIndex = "0";
 }else{
     body.style.overflow = "scroll"
+    caixa2.style.zIndex = "999";
 }
+
 })
+function buscarProduto() {
+    const buscarInput = document.getElementById("buscar-input").value.toLowerCase();
+    const produtos = document.querySelectorAll(".artista");
+    const videoGuita = document.querySelector(".tudo-meio");
+
+    produtos.forEach(produto => {
+        const produtoNome = produto.querySelector("h1").innerText.toLowerCase();
+
+        if (produtoNome.includes(buscarInput)) {
+            produto.style.display = "block";
+            if (videoGuita.style.display === 'block') {
+                videoGuita.style.display = "none";
+            }else{
+                videoGuita.style.display = "block";
+            }
+        } else {
+            produto.style.display = "none";
+        }
+    });
+}
 
 const produtosLink = document.getElementById("produtos-link");
         const produtosMenu = document.getElementById("produtos-menu");

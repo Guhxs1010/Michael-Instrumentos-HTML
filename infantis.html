@@ -1322,6 +1322,9 @@ input::placeholder {
     flex: 0 0 100%;
     max-width: 100%;
 }
+#buscar-2{
+    display: none;
+}
 @media (max-width:780px) {
     .container{
         display: none;
@@ -1533,7 +1536,7 @@ display:none
     .carrossel {
         width: 320px;
         display: flex;
-        margin-top: 20px;
+        margin-top: -15px;
     }
     ul{
         display: flex;
@@ -1713,6 +1716,23 @@ display:none
     display: flex;
     margin-top: -10px;
 }
+
+#buscar-input{
+    z-index: 999;
+    transition: 2s ease;
+}
+#buscar-2 {
+            display: flex;
+            align-items: center;
+            margin: 20px;
+            border: 3px solid #5F489D;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top:25px;
+        }
+    #buscar-2{
+    display: flex;
+}
     }
     </style>
 </head>
@@ -1765,6 +1785,13 @@ display:none
                         alt=''><button></button></a>             
             </div>
      </div>  
+
+     
+ <div id="buscar-2">   
+    <a class="btn-lupa" href="#"><img class="lupa" src="svg/lupa.svg" alt=""><button></button></a>
+        <input type="text" id="buscar-input" placeholder="Pesquisar Produto" oninput="buscarProduto()">
+        
+    </div>
     <!-- Menu -->
     <div class="container" id="container">
     <a class="logo-michael" href="index.html">
@@ -2142,12 +2169,19 @@ window.addEventListener("load", function() {
 
 const checkbox = document.getElementById("checkbox")
 const body = document.querySelector('body')
+const caixa = document.querySelector('.container-caixas')
+const caixa2 = document.querySelector('#buscar-input')
 checkbox.addEventListener("change",function(){
     if(checkbox.checked){
-    body.style.overflow = "hidden"
+    body.style.overflow = "hidden";
+    caixa.style.zIndex = "0";
+    caixa2.style.zIndex = "0";
 }else{
     body.style.overflow = "scroll"
+    caixa.style.zIndex = "999";
+    caixa2.style.zIndex = "999";
 }
+
 })
 
 const carrosselContainer = document.querySelector('.carrossel-container');
@@ -2213,7 +2247,7 @@ const produtosLink = document.getElementById("produtos-link");
 function buscarProduto() {
     const buscarInput = document.getElementById("buscar-input").value.toLowerCase();
     const produtos = document.querySelectorAll(".wrapper");
-    const videoGuita = document.querySelector(".infantil-video");
+    const videoGuita = document.querySelector(".carrossel");
     const videoGuita2 = document.querySelector(".ensino-camp");
 
     produtos.forEach(produto => {

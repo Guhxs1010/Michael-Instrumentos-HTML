@@ -936,6 +936,9 @@ display:none
 .btn-megafone-2{
     display: flex;
 }
+.form-container{
+        z-index: 999;
+    }
     }
     </style>
 </head>
@@ -1080,12 +1083,17 @@ window.addEventListener("load", function() {
 
 const checkbox = document.getElementById("checkbox")
 const body = document.querySelector('body')
+const caixa = document.querySelector('.form-container')
 checkbox.addEventListener("change",function(){
     if(checkbox.checked){
-    body.style.overflow = "hidden"
+    body.style.overflow = "hidden";
+    caixa.style.zIndex = "0";
 }else{
-    body.style.overflow = "scroll"
+    body.style.overflow = "scroll";
+    caixa.style.zIndex = "999";
+
 }
+
 })
 
 
