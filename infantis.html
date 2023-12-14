@@ -829,6 +829,7 @@ form {
     width: 200px;
     display: none;
     flex-direction: column;
+    z-index: 999;
 }
 .botao-bars{
     display: none;
@@ -1483,14 +1484,13 @@ input[type="number"] {
     }
     .video{
     width: 100%;
-    height: 350px;
+    height: 340px;
     object-fit: cover;
 }
 .video-infantil{
     width: 100%;
-    height: 350px;
+    height: 340px;
     object-fit: cover;
-    object-position:-540px ;
 }
     .carrossel {
         display: flex;
@@ -1689,6 +1689,7 @@ display:none
         width: 320px;
         display: flex;
         margin-top: -15px;
+        z-index: 999;
     }
     ul{
         display: flex;
@@ -2344,25 +2345,30 @@ const body = document.querySelector('body')
 const caixa = document.querySelector('.container-caixas')
 const caixa2 = document.querySelector('#buscar-input')
 const caixa22 = document.querySelector('.bolinhas')
+const carrossel = document.querySelector('.carrossel')
 checkbox.addEventListener("change",function(){
     if(checkbox.checked){
     body.style.overflow = "hidden";
     caixa.style.zIndex = "0";
     caixa2.style.zIndex = "0";
     caixa22.style.zIndex = "0";
+    caixa222.style.zIndex = "0";
 }else{
     body.style.overflow = "scroll"
     caixa.style.zIndex = "999";
     caixa2.style.zIndex = "999";
     caixa22.style.zIndex = "999";
+    caixa222.style.zIndex = "999";
 }
 
 })
 
-const carrosselContainer = document.querySelector('.carrossel-container');
+const carrosselContainer = document.querySelector(".carrossel-container");
 const bolinhas = document.querySelectorAll('.bolinha');
 let currentIndex = 0;
 let timer;
+let touchStartX = 0;
+let touchMoveX = 0;
 
 function updateCarousel() {
     const imageWidth = carrosselContainer.children[0].offsetWidth;
@@ -2380,14 +2386,6 @@ function updateBolinhas() {
     });
 }
 
-// Função para clicar nas bolinhas
-bolinhas.forEach((bolinha, index) => {
-    bolinha.addEventListener('click', () => {
-        currentIndex = index;
-        updateCarousel();
-    });
-});
-
 function nextImage() {
     currentIndex = (currentIndex + 1) % bolinhas.length;
     updateCarousel();
@@ -2397,8 +2395,47 @@ function startAutoAdvance() {
     timer = setInterval(nextImage, 7000);
 }
 
+function handleTouchStart(e) {
+    touchStartX = e.touches[0].clientX;
+    touchMoveX = touchStartX;
+}
+
+function handleTouchMove(e) {
+    touchMoveX = e.touches[0].clientX;
+}
+
+function handleTouchEnd() {
+    const touchDelta = touchMoveX - touchStartX;
+
+    if (touchDelta < -50) {
+        nextImage(); // Deslizar para a esquerda
+    } else if (touchDelta > 50) {
+        currentIndex = (currentIndex - 1 + bolinhas.length) % bolinhas.length;
+        updateCarousel(); // Deslizar para a direita
+    }
+}
+
+// Adicionando eventos de toque
+carrosselContainer.addEventListener('touchstart', handleTouchStart);
+carrosselContainer.addEventListener('touchmove', handleTouchMove);
+carrosselContainer.addEventListener('touchend', handleTouchEnd);
+
+// Função para clicar nas bolinhas
+bolinhas.forEach((bolinha, index) => {
+    bolinha.addEventListener('click', () => {
+        currentIndex = index;
+        updateCarousel();
+        clearInterval(timer);
+        startAutoAdvance();
+    });
+});
+
 // Inicie o temporizador para avançar automaticamente
 startAutoAdvance();
+
+
+
+
 
 
 const produtosLink = document.getElementById("produtos-link");
