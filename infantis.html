@@ -1292,6 +1292,9 @@ bottom:50%;
 .toast--green:before{
   background-color:#2BDE3F;
 }
+.bolinha-triste{
+    display: none;
+}
 .toast toast--green{
     display: block;
     top: -100px;
@@ -1421,7 +1424,8 @@ input[type="number"] {
     justify-content: center;
     margin-top: 240px;
     position: absolute;
-    top: 50%;
+    top: 52%;
+    z-index: 999;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -1881,6 +1885,13 @@ display:none
     #buscar-2{
     display: flex;
 }
+.btn-megafone-2{
+z-index:999;
+}
+.bolinhas{
+    top:30%;
+    z-index: 999;
+}
     }
     </style>
 </head>
@@ -1927,7 +1938,7 @@ display:none
             </a>
     
             <div class="icones">
-                <a class="btn-megafone-2" href="#"><img class="carrinho" src="svg/megafone.svg" alt=""><button></button></a>
+                <a class="btn-megafone-2" href="campanha.html"><img class="carrinho" src="svg/megafone.svg" alt=""><button></button></a>
                 <a class="btn-carrinho-2" href="carrinho.html"><img class="carrinho" src="svg/carrinho.svg" alt=""><button></button></a>
     <a class='btn-contato-2' href='cadastro.html'><img class='boneco' src='svg/boneco.svg'
                         alt=''><button></button></a>             
@@ -1959,7 +1970,7 @@ display:none
             <li class="li"><a id="bao" class="linha" href="infantis.html">Infantis</a></li>
             <li class="li"><a id="bao" class="linha" href="artistas.html">Artistas</a></li>
             <li class="li"><a id="bao" class="sobre" href="index.html">Sobre a Michael</a></li>
-            <a class="btn-megafone" href="#"><img class="carrinho" src="svg/megafone.svg" alt=""><button></button></a> 
+            <a class="btn-megafone" href="campanha.html"><img class="carrinho" src="svg/megafone.svg" alt=""><button></button></a> 
             <a class="btn-carrinho" href="carrinho.html"><img class="carrinho" src="svg/carrinho.svg" alt=""><button></button></a>
 <a class='btn-contato' href='cadastro.html'><img class='boneco' src='svg/boneco.svg'
                     alt=''><button></button></a>     
@@ -1985,11 +1996,13 @@ display:none
             <!-- Adicione mais vídeos aqui -->
         </div>
         <!-- Bolinhas Carrossel -->
-        <div class="bolinhas">
+
+    </div>        
+    <div class="bolinhas">
             <span class="bolinha ativa" data-index="0"></span>
             <span class="bolinha" data-index="1"></span>
+            <input id="boool" type="checkbox" class="bolinha-triste" data-index="="1>
         </div>
-    </div>
 
              <!-- Caixa 1  -->
     <div class="fundo-caixas">
@@ -2330,15 +2343,18 @@ const checkbox = document.getElementById("checkbox")
 const body = document.querySelector('body')
 const caixa = document.querySelector('.container-caixas')
 const caixa2 = document.querySelector('#buscar-input')
+const caixa22 = document.querySelector('.bolinhas')
 checkbox.addEventListener("change",function(){
     if(checkbox.checked){
     body.style.overflow = "hidden";
     caixa.style.zIndex = "0";
     caixa2.style.zIndex = "0";
+    caixa22.style.zIndex = "0";
 }else{
     body.style.overflow = "scroll"
     caixa.style.zIndex = "999";
     caixa2.style.zIndex = "999";
+    caixa22.style.zIndex = "999";
 }
 
 })

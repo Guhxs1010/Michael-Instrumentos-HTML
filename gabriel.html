@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <title>Michael</title>
-    <link rel="icon" href="img/m.png">
-    <style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<title>Michael</title>
+<link rel="icon" href="img/m.png">
+<style>
         * {
             margin: 0;
             padding: 0;
@@ -620,8 +620,6 @@ input::placeholder {
     margin-bottom: 8px;
 }
 
-/*? socials */
-
 .social-wrapper {
     display: flex;
     width: 100%;
@@ -669,12 +667,71 @@ input::placeholder {
 .btn-megafone-2{
     display: none;
 }
+.fundo-meio{
+    background-image: url(img/fundo.png);
+                background-attachment: fixed;
+                background-size: cover;
+                background-position: top; 
+}
 #buscar-2{
     display: none;
+}
+.foto-artista{
+    display: flex;
+    margin-left: 50px;
+    margin-top: 40px;
+}
+.artistas-meio{
+    display: flex;
+}
+.textos{
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    margin-top: 50px;
+}
+.titulo{
+    color: #5F489D;
+}
+.botao{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+.voltar{
+    background-color: #5F489D;
+    color: white;
+    width: 100px;
+    height: 35px;
+    cursor: pointer;
+}
+.voltar:hover{
+    background-color: #7861b7;
+}
+.conteudo{
+    width: 600px;
+    margin-top: 20px;
+}
+.foto{
+    border-radius: 10px;
+    width: 400px;
 }
 @media (max-width:780px) {
     .container{
         display: none;
+    }
+    .foto-artista{
+        margin-left: 10px;
+    }
+    .conteudo{
+        width: 260px;
+    }
+    .foto{
+        width:300px;
+    }
+    .botao{
+        position: relative;
+        z-index: 999;
     }
     .phone {
 /*   background-color: #36383F; */
@@ -931,6 +988,10 @@ display:none
         display: flex;
         flex-direction: column;
     }
+    .artistas-meio{
+        flex-direction: column;
+        margin-top: 20px;
+    }
     .artista{
         width: 300px;
     }
@@ -1024,13 +1085,10 @@ display:none
     #buscar-2{
     display: flex;
 }
-.artista{
-    position: relative;
-    z-index:999;
-}
 .btn-megafone-2{
 z-index:999;
 }
+
 
     }
     </style>
@@ -1122,245 +1180,30 @@ z-index:999;
         </ul>
     </div>
 
-    <div class="tudo-meio">
-    <div class="video-meio">
-        <div class="video">
-            <video class="artistas-video" src="videos/Artistas.mp4" autoplay loop muted></video>
-        </div>
-    </div>
 
-    <div class="meio">
-       
-        <div class="texto-meio">
-            <h1 class="texto-centro">Artistas</h1>
-            <p class="conteudo-centro">Michael Instrumentos está sendo representada por músicos talentosos e carismáticos. Ter artistas que compartilham uma conexão genuína com a marca e seus instrumentos é valioso para ambas as partes. Essa parceria pode fortalecer a presença da Michael no cenário musical e inspirar músicos aspirantes a explorar os produtos da marca.
-            </p>
-        </div>
-
-        <div class="imagem-meio">
-            <img class="imagem-centro" src="img/inverso.png" alt="">
-        
-    </div>
-    </div>
-</div>
-
-    <div class="fundo-centro">
-       <div class="artistas-centro">
-        <div class="artistas">
-
-            <!-- Artista-1 -->
-            <div class="artista">
-                <a href="alan.html">
-                    <div class="imagem-artista">
-                    <img src="img/artista-1.png" alt="">
-                </div>
-                <div class="info">
-                    <h1>Alan Rosa</h1>
-                </div>
-            </a>
+    <div class="fundo-meio">
+        <div class="artistas-meio">
+            <div class="foto-artista">
+               <img class="foto" src="img/artista-2.png" alt="">
             </div>
-
-
-       <!-- Artista-2 -->
-       <div class="artista">
-        <a href="gabriel.html">
-        <div class="imagem-artista">
-            <img src="img/artista-2.png" alt="">
-        </div>
-        <div class="info">
-            <h1>Gabriel Faro</h1>
-        </div>
-    </a>
-    </div>
-
-     <!-- Artista-3 -->
-     <div class="artista">
-        <a href="marlon.html">
-        <div class="imagem-artista">
-            <img src="img/artista-3.png" alt="">
-        </div>
-        <div class="info">
-            <h1>Marlon Marquis</h1>
-        </div>
-    </a>
-    </div>
-
-        </div>
-       </div>
-    </div>
-
-        <div class="fundo-centro">
-       <div class="artistas-centro">
-        <div class="artistas">
-
-            <!-- Artista-4 -->
-            <div class="artista">
-                <a href="claudio.html">
-                <div class="imagem-artista">
-                    <img src="img/artista-4.png" alt="">
-                </div>
-                <div class="info">
-                    <h1>Claudio Infante</h1>
-                </div>
-            </a>
+            <div class="textos">
+            <div class="titulo-artista">
+                <h1 class="titulo">Gabriel Faro</h1>
             </div>
-
-       <!-- Artista-5 -->
-       <div class="artista">
-        <a href="lipe.html">
-        <div class="imagem-artista">
-            <img src="img/artista-5.png" alt="">
-        </div>
-        <div class="info">
-            <h1>Felipe Nogueira</h1>
-        </div>
-    </a>
-    </div>
-
-     <!-- Artista-6 -->
-     <div class="artista">
-        <a href="daniel.html">
-        <div class="imagem-artista">
-            <img src="img/artista-6.png" alt="">
-        </div>
-        <div class="info">
-            <h1>Daniel Victor</h1>
-        </div>
-    </a>
-    </div>
-
-        </div>
-       </div>
-    </div>
-
-    <footer class="footer">
-            <div class="footer-wrapper">
-                <div class="social-wrapper">
-                    <div class='social-links'>
-                        <ul>
-                            <li>
-                                <a href="#" title="Instagram" class="redes-footer">
-                                    <i class="fa-brands fa-instagram" style="color: #ffffff;"></i>                      
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" title="Linkedin" class="redes-footer">
-                                    <i class="fa-brands fa-linkedin-in" style="color: #ffffff;"></i>
-                                    
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" title="Twitter" class="redes-footer">
-                                    <i class="fa-brands fa-twitter" style="color: #ffffff;"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" title="Youtube" class="redes-footer">
-                                    <i class="fa-brands fa-youtube" style="color: #ffffff;"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" title="GitHub" class="redes-footer">
-                                    <i class="fa-brands fa-github" style="color: #ffffff;"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-              
-                <div class="footer-columns">
-                    <div class="footer-links">
-                        <div class="footer-logo">
-                            <img class="img-footer" src="img/inverso.png" alt="">
-                        </div>
-                        <div class="sections">
-                        <section>
-                            <h3>Produtos</h3>
-                            <ul>
-                                <li>
-                                    <a href="guitarra.html" title="API">Guitarra</a>
-                                </li>
-                                <li>
-                                    <a href="baixo.html" title="Pricing">Baixo</a>
-                                </li>
-                                <li>
-                                    <a href="ukulele.html" title="Documentation">Ukulele</a>
-                                </li>
-                                <li>
-                                    <a href="bateria.html" title="Release Notes">Bateria</a>
-                                </li>
-                            </ul>
-                        </section>
-                        <section>
-                            <h3>Resources</h3>
-                            <ul>
-                                <li>
-                                    <a href="#" title="Support">Support</a>
-                                </li>
-                                <li>
-                                    <a href="#" title="Sitemap">Sitemap</a>
-                                </li>
-                            </ul>
-                        </section>
-                        <section>
-                            <h3>Company</h3>
-                            <ul>
-                                <li>
-                                    <a href="#" title="About Us">About Us</a>
-                                </li>
-                                <li>
-                                    <a href="#" title="Blog">Blog</a>
-                                </li>
-                                <li>
-                                    <a href="#" title="Contact">Contact</a>
-                                </li>
-                            </ul>
-                        </section>
-                    
-                        <section>
-                            <h3>Legal</h3>
-                            <ul>
-                                <li>
-                                    <a href="#" title="Terms and services">
-                                        Terms
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" title="Privacy Policy">
-                                        Privacy
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" title="Cookies">
-                                        Cookies
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" title="Licenses">
-                                        Licenses
-                                    </a>
-                                </li>
-                                <li>
-                                </li>
-                            </ul>
-                        </section>
-                    </div>
-                   </div>
-                </div>
-                <div class="footer-bottom">
-                    <div class="footer-description">
-                        <h3>The World of Music is an Invaluable Gift.</h3>
-                        <p>Music<p>
-                    </div>
-                    <small>© Michael Instrumentos <span id="year"></span>, All rights reserved</small>
-                </div>
+            <div class="conteudo-artista">
+                <p class="conteudo">Musicista, baterista e compositor! Gabriel Faro começou a estudar bateria aos 6 anos de idade. Aos 14 começou sua carreira profissional gravando com vários artistas. Atualmente leciona aulas de bateria e trabalha com gravações, tanto online quanto presenciais.</p>
             </div>
-        </footer>
+        </div>
+        </div>
+    </div>
+
+    <div class="botao">
+        <a href="artistas.html"><button class="voltar">Voltar</button></a>
+    </div>
 
 
     <script>
-       // Quando todo o conteúdo da página é carregado
-window.addEventListener("load", function() {
+        window.addEventListener("load", function() {
     setTimeout(function() {
         document.querySelector(".loading-screen").style.opacity = "0";
         setTimeout(function() {
@@ -1372,7 +1215,7 @@ window.addEventListener("load", function() {
 const checkbox = document.getElementById("checkbox")
 const body = document.querySelector('body')
 const caixa2 = document.querySelector('#buscar-input')
-const caixa22 = document.querySelector('.artista')
+const caixa22 = document.querySelector('.botao')
 checkbox.addEventListener("change",function(){
     if(checkbox.checked){
     body.style.overflow = "hidden";
@@ -1385,46 +1228,16 @@ checkbox.addEventListener("change",function(){
 }
 
 })
-function buscarProduto() {
-    const buscarInput = document.getElementById("buscar-input").value.toLowerCase();
-    const produtos = document.querySelectorAll(".artista");
-    const videoGuita = document.querySelector(".tudo-meio");
-
-    produtos.forEach(produto => {
-        const produtoNome = produto.querySelector("h1").innerText.toLowerCase();
-
-        if (produtoNome.includes(buscarInput)) {
-            produto.style.display = "block";
-            if (videoGuita.style.display === 'block') {
-                videoGuita.style.display = "none";
-            }else{
-                videoGuita.style.display = "block";
-            }
-        } else {
-            produto.style.display = "none";
-        }
-    });
-}
-
 const produtosLink = document.getElementById("produtos-link");
-        const produtosMenu = document.getElementById("produtos-menu");
+const produtosMenu = document.getElementById("produtos-menu");
 
-        produtosLink.addEventListener("mouseover", function() {
-            produtosMenu.style.display = "block";
-        });
+produtosLink.addEventListener("mouseover", function () {
+    produtosMenu.style.display = "block";
+});
 
-        produtosLink.addEventListener("mouseout", function() {
-            produtosMenu.style.display = "none";
-        });
-        function OpenMenu() {
-    const container = document.querySelector(".container");
-    if (container.style.display === 'flex' || container.style.display === '') {
-        container.style.display = 'none';
-    } else {
-        container.style.display = 'flex';
-    }
-}
-document.getElementById("year").innerHTML = new Date().getFullYear();  
+produtosLink.addEventListener("mouseout", function () {
+    produtosMenu.style.display = "none";
+});
     </script>
 </body>
 </html>

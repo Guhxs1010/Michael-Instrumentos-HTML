@@ -26,6 +26,7 @@
             padding: 0; 
             font-family: 'Font';
             background-color: #5F489D;
+            color: white;
         }
         .container {
                 display: flex; 
@@ -64,7 +65,7 @@
         }
         #produtos-link a {
             text-decoration: none;
-            color: #5F489D;
+            color: white;
             width: 100px;
             font-family: 'Font';
             font-size: 18px;
@@ -77,6 +78,7 @@
             background-color: white;
             width: 100px;
             border: 1px solid #ccc;
+            list-style: none;
         }
 
         #produtos-menu ul {
@@ -107,7 +109,7 @@
                 /* Adicionei os estilos para os links do menu aqui */
         .nav-cont li a {
             text-decoration: none;
-            color: #5F489D;
+            color: white;
             font-size: 20px;
             position: relative;
             transition: color 0.4s;
@@ -157,7 +159,13 @@
 .lupa {
     width: 25px;
 }
-
+        .btn-lupa {
+            text-decoration: none;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 8px;
+        }
 
 .lupa {
     margin-left: 10px;
@@ -222,6 +230,7 @@ img.carrinho{
             border-radius: 20px;
             overflow: hidden;
             margin-top:-10px;
+            background-color: white;
         }
 
         .btn-lupa {
@@ -490,7 +499,6 @@ input::placeholder {
 .social-links img:hover {
     transform: scale(1.1);
 }
-
 .social-links ul {
     display: flex;
     flex-wrap: wrap;
@@ -655,12 +663,530 @@ img.carrinho{
 .img-carrinho{
     width: 35px;
 }
+.carrossel {
+            position: relative;
+            z-index: 1; /* Coloca o carrossel abaixo do menu de produtos */
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .carrossel-container {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .video {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+.carrossel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.carrossel-container {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+.fundo-contribuicao{
+    background-image: url(img/rodape.png);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: top;
+    display: flex;
+    justify-content: center;
+    height: 400px;
+}
+
+.video, .video-infantil {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+.bolinhas {
+    display: flex;
+    justify-content: center;
+    margin-top: 240px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bolinha {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #999;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.bolinha.ativa {
+    background-color: #5F489D;
+}
+.saiba-infantis {
+    position: absolute;
+    z-index: 999;
+    top: 450px;
+    left: 2580px;
+    opacity: 1;
+    border: 1px solid white;
+    background-color: #5F489D;
+    /* Fundo transparente */
+    color: #ffffff;
+    font-family: 'Font';
+    width: 100px;
+    height: 50px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: block;
+    line-height: 50px;
+    text-align: center;
+}
+
+.saiba-infantis:hover {
+    color: #5F489D;
+    background-color: #ffffff;
+    transition: 1s;
+}
+.video {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+#buscar-2{
+    display: none;
+}
+.meio {
+    background-image: url(img/fundo.png);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: top;
+    display: flex;
+    justify-content: space-evenly;
+}
+.caixa-contribuir{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.imagem-centro {
+    width: 400px;
+    margin-right: 100px;
+}
+.dinheiro{
+    width: 100px;
+}
+.texto-centro {
+    color: #5F489D;
+    font-family: 'Font';
+    font-size: 30px;
+    margin-right: 500px;
+    margin-left: 100px;
+    margin-top: 50px;
+}
+
+.texto-centro2 {
+    color: #5F489D;
+    font-family: 'Font';
+    font-size: 30px;
+    margin-left: 100px;
+    margin-top: 40px;
+}
+
+.conteudo-centro {
+    color: black;
+    font-family: 'Font';
+    font-size: 19px;
+    width: 700px;
+    margin-top: 10px;
+    margin-left: 100px;
+}
+.conteudo-caixa{
+    color: white;
+    font-family: 'Font';
+    font-size: 19px;
+    width: 700px;
+    margin-top: 15px;
+}
+
+.conteudo-centro2 {
+    color: black;
+    font-family: 'Font';
+    font-size: 19px;
+    margin-top: 10px;
+    margin-left: 50px;
+    width: 700px;
+}
+:root {
+    --text-color: #5F489D;
+    --white: #5F489D;
+    --text-gray: #FEFEFE;
+    --text-heading-gray: #D0D0F7;
+    --background: #EDF0F9;
+    --border: #aabfff;
+}
+
+/*? footer reset */
+*, *::after, *::before {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    /* color: #5F489D; */
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Inter', 
+        sans-serif;
+        color: var(--text-color);
+}
+
+.subscription-section {
+    margin: 0 auto;
+    margin-top: auto;
+    padding: 48px 16px;
+    max-width: 1024px;
+    width: 100%;
+}
+
+/*? subscribe section */
+.subscription-wrapper {
+    margin: 0 auto;
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    min-height: 180px;
+    gap: 32px;
+    color: var(--primary);
+    background-color: var(--background);
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.subscription__description {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-grow: 1;
+}
+
+.subscribe-form {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    flex-grow: 1;
+}
+
+.subscribe-form > input {
+    border: 1px solid var(
+        --button-border);
+    color: var(--primary);
+    outline: none;
+    min-height: 48px;
+    background-color: var(
+        --white);
+    font-size: 1.2rem;
+    flex-grow: 3;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.subscribe-form > input:focus {
+    border: 1px solid var(
+        --primary);
+}
+
+.subscribe-form > 
+input::placeholder {
+    color: var(--text-heading-gray);
+}
+
+.subscribe-form > button {
+    cursor: pointer;
+    background-color:#5F489D;
+    border-radius: 8px;
+    color:#5F489D;
+    font-size: 1.25rem;
+    min-height: 48px;
+    flex-grow: 1;
+    white-space: nowrap;
+    padding: 8px 12px;
+    border: 0px;
+    outline: none;
+    border: 1px solid var(
+        --button-border);
+}
+
+/*? footer containers */
+.footer {
+    bottom: 0px;
+    background-color: var(
+        --primary);
+    width: 100%;
+    min-width: 300px;
+    bottom: 0px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-image: url(img/fundo.png);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: top;
+    color: var(--text-color);
+}
+.footer-wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 1024px;
+    width: 100%;
+    padding: 16px;
+}
+.redes-footer{
+    font-size: 20px;
+    margin-right: 20px;
+    color: #000;
+}
+.footer-links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-grow: 4;
+    gap: 48px 16px;
+}
+
+.footer-columns {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 24px 8px 36px 8px;
+}
+
+.footer-columns section, 
+.footer-columns .footer-logo {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 160px;
+    max-width: 160px;
+}
+ 
+.footer-columns ul {
+    display: flex;
+    gap: 12px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    flex-direction: column;
+    font-weight: 600;
+}
+
+.footer-columns ul a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.footer-columns ul a:hover{
+    text-decoration: underline;
+}
+
+.footer-columns h3 {
+    opacity: 0.6;
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 1rem;
+}
+
+.footer-logo {
+    display: flex;
+    gap: 16px;
+    flex-grow: 1;
+    max-width: 160px;
+    margin-bottom: 48px;
+}
+
+.footer-logo svg {
+    stroke: var(--text-color);
+    stroke-width: 8px;
+    width: 50px;
+    height: 50px;
+}
+
+/*? Footer bottom */
+.footer-bottom {
+    margin-top: 48px;
+    display: flex;
+    align-items: end;
+    width: 100%;
+    gap: 16px;
+    padding: 16px 0px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: var(--text-color);
+    border-top: 1px solid var(
+        --border);
+        color: var(--text-color);
+}
+
+.footer-bottom > small {
+    font-size: 16px;
+    margin: 0 4px;
+}
+
+.footer-headline > h2 {
+    margin: 0px;
+    color: var(--text-color);
+}
+
+.footer-headline > p {
+   color: var(--text-color);
+    margin: 4px 0px 20px 0px;
+}
+
+.footer-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.footer-description h3 {
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+.texto-caixa-2{
+    color: white;
+}
+
+/*? socials */
+
+.social-wrapper {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+    padding: 8px 0px;
+    justify-content: end;
+    margin-bottom: 16px;
+    align-items: center;
+    color: var(--text-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 8px;
+    margin-right: 100px;
+    color: #000;
+}
+
+.social-links img {
+    width: 24px;
+    height: 24px;
+    transition: all 0.2s ease-in-out;
+}
+
+.social-links img:hover {
+    transform: scale(1.1);
+}
+
+.social-links ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    list-style-type: none;
+}
+
+.social-links ul li a i{
+    fill: #000;
+}
+.social-links ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    list-style-type: none;  
+}
+@media (min-width: 926px) {
+    .footer-logo {
+        margin-right: auto;
+    }
+}
+@media (max-width: 800px) {
+    .footer-top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 16px 8px 32px 8px;
+    }
+
+    .footer-bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .social-wrapper {
+        justify-content: center;
+    }
+}
+.input-dinheiro{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+.input-text{
+    width: 400px;
+    height: 30px;
+    outline: none;
+}
+.dinheiro-caixa{
+    border: 1px solid #BFB0D1;
+    width: 320px;
+    background-color: #BFB0D1;
+    margin-left: 185px;
+    margin-top: 20px;
+}
+.texto-caixa-2{
+    margin-top: 40px;
+}
+
+.texto-meio {
+    margin-right: 100px;
+}
+.video-centro{
+    width: 400px;
+    border-radius: 5px;
+}
 @media (max-width:780px) {
     .container{
         display: none;
     }
     .img-carrinho, .boneco, .lupa{
         width:25px;
+    }
+    .video{
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+.video-infantil{
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    object-position:-540px ;
+}
+    .carrossel {
+        display: flex;
+        margin-top: 20px;
+        width: 100%;
+        overflow: hidden;
     }
     .phone {
 /*   background-color: #36383F; */
@@ -674,6 +1200,64 @@ img.carrinho{
   justify-content: center;
   align-items: center;
 /*   box-shadow: 30px 50px 100px #85888C; */
+}
+.img-footer{
+    width:100px;
+    margin-left:85px;
+    margin-top:10px;
+}
+.meio{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+    .texto-centro{
+        margin-left: 430px;
+        font-size: 25px;
+    }
+    .caixa-contribuir{
+        width: 220px;
+    }
+    .dinheiro{
+        display: none;
+    }
+    .conteudo-centro{
+        font-size: 15px;
+    width: 290px;
+    margin-top: 10px;
+    margin-left: 430px;
+    }
+    .imagem-centro{
+        width: 310px;
+        margin-left: 90px;
+    }
+.social-wrapper{
+    display:none;
+}
+.footer-columns section, .footer-columns .footer-logo{
+    margin-top:-30px;
+}
+.footer-logo{
+    width: 200px;
+}
+.footer-bottom{
+    margin-top:-20px;
+} 
+.sections{
+    display:flex;
+    flex-wrap:wrap;
+
+}
+.sections section{
+    width:150px;
+    margin-right:40px;
+    margin-bottom:40px;
+
+}
+.footer-columns section{
+    flex:0;
 }
 .menuAtivo{
    overflow: hidden;
@@ -854,7 +1438,7 @@ display:none
     .carrossel {
         width: 320px;
         display: flex;
-        margin-top: 20px;
+        margin-top: -15px
     }
     ul{
         display: flex;
@@ -882,7 +1466,7 @@ display:none
         color: white;
     }
     #produtos-link #bao{
-        color: white;
+        color:white;
     }
     #produtos-menu {
         display: none;
@@ -1035,6 +1619,13 @@ body{
         }
     #buscar-2{
     display: flex;
+        margin-top: 20px;
+}
+.btn-megafone-2{
+z-index:999;
+}
+.bolinhas{
+    top: 25%;
 }
 }
 
@@ -1084,10 +1675,12 @@ body{
             </a>
     
             <div class="icones">
-                <a class="btn-megafone-2" href="#"><img class="carrinho" src="svg/megafone.svg" alt=""><button></button></a>  
-                <a class="btn-carrinho-2" href="carrinho.html"><img class="carrinho" src="svg/carrinho.svg" alt=""><button></button></a>
-    <a class='btn-contato-2' href='cadastro.html'><img class='boneco' src='svg/boneco.svg'
-                        alt=''><button></button></a>             
+                <a class="btn-megafone-2" href="campanha.html"><img class="carrinho" src="svg/megafone-branco.svg" alt=""><button></button></a>  
+                <a class="btn-carrinho-2" href="carrinho.html"><img class="carrinho" src="svg/carrinho-branco.svg" alt=""><button></button></a>
+    <a class='btn-contato-2' href='cadastro.html'><img class='boneco' src='svg/cadastro-branco.svg'
+                        alt='' style="
+                        margin-top: -5px;
+                    "><button></button></a>             
             </div>
      </div>  
      <div id="buscar-2">   
@@ -1114,9 +1707,9 @@ body{
             <li class="li"><a id="bao" class="linha" href="infantis.html">Infantis</a></li>
             <li class="li"><a id="bao" class="linha" href="artistas.html">Artistas</a></li>
             <li class="li"><a id="bao" class="sobre" href="index.html">Sobre a Michael</a></li>
-            <a class="btn-megafone" href="#"><img class="carrinho" src="svg/megafone.svg" alt=""><button></button></a>
-            <a class="btn-carrinho" href="carrinho.html"><img class="carrinho" src="svg/carrinho.svg" alt=""><button></button></a>
-<a class='btn-contato-2' href='cadastro.html'><img class='boneco' src='svg/boneco.svg'
+            <a class="btn-megafone" href="campanha.html"><img class="carrinho" src="svg/megafone-branco.svg" alt=""><button></button></a>
+            <a class="btn-carrinho" href="carrinho.html"><img class="carrinho" src="svg/carrinho-branco.svg" alt=""><button></button></a>
+<a class='btn-contato-2' href='cadastro.html'><img class='boneco' src='svg/cadastro-branco.svg'
                     alt=''><button></button></a>     
                         <div id="buscar">
             <a class="btn-lupa" href="#"><img class="lupa" src="svg/lupa.svg" alt=""><button></button></a>
@@ -1127,6 +1720,181 @@ body{
             
         </ul>
     </div>
+
+
+    <div class="carrossel">
+        <div class="carrossel-container">
+            <video class="video" autoplay muted loop>
+                <source src="videos/titans.mp4" type="video/mp4">
+            </video>
+          
+            <!-- Adicione mais vídeos aqui -->
+        </div>
+        <!-- Bolinhas Carrossel -->
+        <div class="bolinhas">
+            <span class="bolinha ativa" data-index="0"></span>
+        </div>
+    </div>
+
+    <div class="meio ">
+            <div class="texto-meio">
+                <h1 class="texto-centro">Como participar</h1>
+                <p class="conteudo-centro">Escolas e organizações interessadas podem entrar em contato com o Michael para obter mais informações sobre o processo de candidatura e seleção. A empresa está ansiosa para colaborar com aqueles que compartilham sua visão de um mundo onde todas as crianças têm acesso à música e à oportunidade de desenvolver seus talentos.
+
+A Michael acredita que, ao fazer instrumentos musicais, está contribuindo não apenas para a formação de músicos habilidosos, mas também para a construção de comunidades mais ricas culturalmente e emocionalmente. Junte-se a nós nessa jornada para harmonizar sonhos e inspirar o próximo grande talento musical!
+                </p>
+            </div>
+            <div class="imagem-meio">
+                <img class="imagem-centro" src="img/som-infantil.png" alt="">
+
+
+                
+            </div>
+    </div>
+
+    <div class="fundo-contribuicao">
+        <div class="caixa-contribuir">
+            <div class="texto-caixa">
+                <div class="titulo-caixo">
+                    <h1 class="texto-caixa-2">Contribua com a Campanha "Harmonia Infantil</h1>
+                </div>
+                <div class="conteudo-caixa">
+                    <p class="conteudo-caixa">Seja parte deste movimento para promover a música entre crianças e apoiar a Campanha "Harmonia Infantil". Cada doação é uma nota de esperança, um acorde de generosidade.</p>
+                </div>
+
+            </div>                
+            <div class="input-dinheiro">
+                    <input class="input-text" type="text">
+            </div>
+            <div class="dinheiro-caixa">
+               <img class="dinheiro" src="img/visa.png" alt="">
+               <img class="dinheiro" src="img/elo.png" alt="">
+               <img class="dinheiro" src="img/pix.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-wrapper">
+            <div class="social-wrapper">
+                <div class='social-links'>
+                    <ul>
+                        <li>
+                            <a href="#" title="Instagram" class="redes-footer">
+                                <i class="fa-brands fa-instagram" style="color: #5F489D;"></i>                      
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="Linkedin" class="redes-footer">
+                                <i class="fa-brands fa-linkedin-in" style="color: #5F489D;"></i>
+                                
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="Twitter" class="redes-footer">
+                                <i class="fa-brands fa-twitter" style="color: #5F489D;"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="Youtube" class="redes-footer">
+                                <i class="fa-brands fa-youtube" style="color: #5F489D;"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="GitHub" class="redes-footer">
+                                <i class="fa-brands fa-github" style="color: #5F489D;"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+          
+            <div class="footer-columns">
+                <div class="footer-links">
+                    <div class="footer-logo">
+                        <img src="img/m.png" alt="">
+                    </div>
+                    <section>
+                        <h3>Produtos</h3>
+                        <ul>
+                            <li>
+                                <a href="guitarra.html" title="API">Guitarra</a>
+                            </li>
+                            <li>
+                                <a href="baixo.html" title="Pricing">Baixo</a>
+                            </li>
+                            <li>
+                                <a href="ukulele.html" title="Documentation">Ukulele</a>
+                            </li>
+                            <li>
+                                <a href="bateria.html" title="Release Notes">Bateria</a>
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Resources</h3>
+                        <ul>
+                            <li>
+                                <a href="#" title="Support">Support</a>
+                            </li>
+                            <li>
+                                <a href="#" title="Sitemap">Sitemap</a>
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Company</h3>
+                        <ul>
+                            <li>
+                                <a href="#" title="About Us">About Us</a>
+                            </li>
+                            <li>
+                                <a href="#" title="Blog">Blog</a>
+                            </li>
+                            <li>
+                                <a href="#" title="Contact">Contact</a>
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Legal</h3>
+                        <ul>
+                            <li>
+                                <a href="#" title="Terms and services">
+                                    Terms
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" title="Privacy Policy">
+                                    Privacy
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" title="Cookies">
+                                    Cookies
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" title="Licenses">
+                                    Licenses
+                                </a>
+                            </li>
+                            <li>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+               
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-description">
+                    <h3>The World of Music is an Invaluable Gift.</h3>
+                    <p>Music<p>
+                </div>
+                <small>© Michael Instrumentos <span id="year"></span>, All rights reserved</small>
+            </div>
+        </div>
+    </footer>
     
     <script>
                        // Quando todo o conteúdo da página é carregado
@@ -1152,6 +1920,46 @@ checkbox.addEventListener("change",function(){
 }
 
 })
+const carrosselContainer = document.querySelector('.carrossel-container');
+const bolinhas = document.querySelectorAll('.bolinha');
+let currentIndex = 0;
+let timer;
+
+function updateCarousel() {
+    const imageWidth = carrosselContainer.children[0].offsetWidth;
+    carrosselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+    updateBolinhas();
+}
+
+function updateBolinhas() {
+    bolinhas.forEach((bolinha, index) => {
+        if (index === currentIndex) {
+            bolinha.classList.add('ativa');
+        } else {
+            bolinha.classList.remove('ativa');
+        }
+    });
+}
+
+// Função para clicar nas bolinhas
+bolinhas.forEach((bolinha, index) => {
+    bolinha.addEventListener('click', () => {
+        currentIndex = index;
+        updateCarousel();
+    });
+});
+
+function nextImage() {
+    currentIndex = (currentIndex + 1) % bolinhas.length;
+    updateCarousel();
+}
+
+function startAutoAdvance() {
+    timer = setInterval(nextImage, 7000);
+}
+
+// Inicie o temporizador para avançar automaticamente
+startAutoAdvance();
 
 const produtosLink = document.getElementById("produtos-link");
         const produtosMenu = document.getElementById("produtos-menu");
@@ -1224,8 +2032,8 @@ const produtosLink = document.getElementById("produtos-link");
                 freteInfo.textContent = "Frete: R$ " + freteFixo.toFixed(2);
             }
 
-            // Restante do seu script...
         }
+        document.getElementById("year").innerHTML = new Date().getFullYear();
     </script>
 
 </body>
