@@ -1722,19 +1722,11 @@ z-index:999;
     </div>
 
 
-    <div class="carrossel">
-        <div class="carrossel-container">
             <video class="video" autoplay muted loop>
                 <source src="videos/titans.mp4" type="video/mp4">
             </video>
           
-            <!-- Adicione mais vídeos aqui -->
-        </div>
-        <!-- Bolinhas Carrossel -->
-        <div class="bolinhas">
-            <span class="bolinha ativa" data-index="0"></span>
-        </div>
-    </div>
+
 
     <div class="meio ">
             <div class="texto-meio">
@@ -1920,46 +1912,6 @@ checkbox.addEventListener("change",function(){
 }
 
 })
-const carrosselContainer = document.querySelector('.carrossel-container');
-const bolinhas = document.querySelectorAll('.bolinha');
-let currentIndex = 0;
-let timer;
-
-function updateCarousel() {
-    const imageWidth = carrosselContainer.children[0].offsetWidth;
-    carrosselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
-    updateBolinhas();
-}
-
-function updateBolinhas() {
-    bolinhas.forEach((bolinha, index) => {
-        if (index === currentIndex) {
-            bolinha.classList.add('ativa');
-        } else {
-            bolinha.classList.remove('ativa');
-        }
-    });
-}
-
-// Função para clicar nas bolinhas
-bolinhas.forEach((bolinha, index) => {
-    bolinha.addEventListener('click', () => {
-        currentIndex = index;
-        updateCarousel();
-    });
-});
-
-function nextImage() {
-    currentIndex = (currentIndex + 1) % bolinhas.length;
-    updateCarousel();
-}
-
-function startAutoAdvance() {
-    timer = setInterval(nextImage, 7000);
-}
-
-// Inicie o temporizador para avançar automaticamente
-startAutoAdvance();
 
 const produtosLink = document.getElementById("produtos-link");
         const produtosMenu = document.getElementById("produtos-menu");
