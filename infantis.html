@@ -1984,26 +1984,11 @@ z-index:999;
     </div>
 
 
-    <div class="carrossel">
-        <div class="carrossel-container">
-            <video class="video" autoplay muted loop>
-                <source src="videos/titans.mp4" type="video/mp4">
-            </video>
           
             <a href="infantis.html"><button class="saiba-infantis">Saiba Mais</button></a>
             <video class="video-infantil" autoplay muted loop>
                 <source src="videos/textO.mp4" type="video/mp4">
-            </video>
-            <!-- Adicione mais vídeos aqui -->
-        </div>
-        <!-- Bolinhas Carrossel -->
-
-    </div>        
-    <div class="bolinhas">
-            <span class="bolinha ativa" data-index="0"></span>
-            <span class="bolinha" data-index="1"></span>
-            <input id="boool" type="checkbox" class="bolinha-triste" data-index="="1>
-        </div>
+            </video>     
 
              <!-- Caixa 1  -->
     <div class="fundo-caixas">
@@ -2362,76 +2347,6 @@ checkbox.addEventListener("change",function(){
 }
 
 })
-
-const carrosselContainer = document.querySelector(".carrossel-container");
-const bolinhas = document.querySelectorAll('.bolinha');
-let currentIndex = 0;
-let timer;
-let touchStartX = 0;
-let touchMoveX = 0;
-
-function updateCarousel() {
-    const imageWidth = carrosselContainer.children[0].offsetWidth;
-    carrosselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
-    updateBolinhas();
-}
-
-function updateBolinhas() {
-    bolinhas.forEach((bolinha, index) => {
-        if (index === currentIndex) {
-            bolinha.classList.add('ativa');
-        } else {
-            bolinha.classList.remove('ativa');
-        }
-    });
-}
-
-function nextImage() {
-    currentIndex = (currentIndex + 1) % bolinhas.length;
-    updateCarousel();
-}
-
-function startAutoAdvance() {
-    timer = setInterval(nextImage, 7000);
-}
-
-function handleTouchStart(e) {
-    touchStartX = e.touches[0].clientX;
-    touchMoveX = touchStartX;
-}
-
-function handleTouchMove(e) {
-    touchMoveX = e.touches[0].clientX;
-}
-
-function handleTouchEnd() {
-    const touchDelta = touchMoveX - touchStartX;
-
-    if (touchDelta < -50) {
-        nextImage(); // Deslizar para a esquerda
-    } else if (touchDelta > 50) {
-        currentIndex = (currentIndex - 1 + bolinhas.length) % bolinhas.length;
-        updateCarousel(); // Deslizar para a direita
-    }
-}
-
-// Adicionando eventos de toque
-carrosselContainer.addEventListener('touchstart', handleTouchStart);
-carrosselContainer.addEventListener('touchmove', handleTouchMove);
-carrosselContainer.addEventListener('touchend', handleTouchEnd);
-
-// Função para clicar nas bolinhas
-bolinhas.forEach((bolinha, index) => {
-    bolinha.addEventListener('click', () => {
-        currentIndex = index;
-        updateCarousel();
-        clearInterval(timer);
-        startAutoAdvance();
-    });
-});
-
-// Inicie o temporizador para avançar automaticamente
-startAutoAdvance();
 
 
 
